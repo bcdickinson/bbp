@@ -16,9 +16,15 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+env = os.environ.copy()
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+# Security
+
+SECRET_KEY = env['SECRET_KEY']
+
+if 'ALLOWED_HOSTS' in env:
+    ALLOWED_HOSTS = env['ALLOWED_HOSTS'].split(',')
 
 
 # Application definition
