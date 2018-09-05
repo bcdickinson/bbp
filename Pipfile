@@ -10,7 +10,7 @@ wagtail = "*"
 python-dotenv = "*"
 gunicorn = "*"
 dj-database-url = "*"
-"psycopg2-binary" = "*"
+psycopg2-binary = "*"
 django-heroku = "*"
 
 [requires]
