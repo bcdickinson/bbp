@@ -6,8 +6,10 @@ name = "pypi"
 [dev-packages]
 
 [packages]
-wagtail = ">=2.2,<2.3"
+wagtail = "*"
 python-dotenv = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.6"
