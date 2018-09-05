@@ -10,6 +10,7 @@ wagtail = "*"
 python-dotenv = "*"
 gunicorn = "*"
 dj-database-url = "*"
+"psycopg2-binary" = "*"
 
 [requires]
 python_version = "3.6"
