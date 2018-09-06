@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
+"flake8" = "*"
+isort = "*"
 
 [packages]
 wagtail = "*"
@@ -12,6 +14,7 @@ gunicorn = "*"
 dj-database-url = "*"
 psycopg2-binary = "*"
 django-heroku = "*"
+scout-apm = "*"
 
 [requires]
 python_version = "3.6"
