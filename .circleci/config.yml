@@ -9,7 +9,6 @@ jobs:
       - image: circleci/python:3.6.1
         environment:
             DATABASE_URL: postgresql://root@localhost/circle_test
-
       - image: circleci/postgres:9.6.5-alpine-ram
 
     working_directory: ~/repo
@@ -20,26 +19,23 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "requirements.txt" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - cache-{{ checksum "Pipfile.lock" }}
+          - cache-
 
       - run:
           name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
+          command: pipenv sync --dev
 
       - save_cache:
+          key: cache-{{ checksum "Pipfile.lock" }}
           paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
+            - ~/.local
+            - ~/.cache
 
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            pipenv shell
             python manage.py test
 
       - store_artifacts:
