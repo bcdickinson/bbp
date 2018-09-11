@@ -7,7 +7,7 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class BBPPage(Page):
+class BasicPage(Page):
     introduction = models.TextField()
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
