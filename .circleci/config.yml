@@ -34,6 +34,21 @@ jobs:
             - ~/.cache
 
       - run:
+          name: check for missing migrations
+          command: |
+            pipenv run ./manage.py makemigrations --check
+
+      - run:
+          name: flake8
+          command: |
+            pipenv run flake8
+
+      - run:
+          name: isort
+          command: |
+            pipenv run isort --check-only
+
+      - run:
           name: run tests
           command: |
             pipenv run ./manage.py test
