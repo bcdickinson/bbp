@@ -13,6 +13,7 @@ import os
 
 import dj_database_url
 import django_heroku
+import raven
 
 env = os.environ.copy()
 
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'raven.contrib.django.raven_compat',
 
     'bbp.leagues.apps.LeaguesConfig',
     'bbp.pages.apps.PagesConfig',
@@ -162,3 +165,14 @@ if 'BASE_URL' in env:
 # Heroku
 
 django_heroku.settings(locals(), databases=False)
+
+
+# Raven
+
+if 'SENTRY_DSN' in env:
+    RAVEN_CONFIG = {
+        'dsn': env['SENTRY_DSN'],
+    }
+
+    if 'SENTRY_ENVIRONMENT' in env:
+        RAVEN_CONFIG['environment'] = env['SENTRY_ENVIRONMENT']
