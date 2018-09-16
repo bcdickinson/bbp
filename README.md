@@ -7,6 +7,7 @@ Bristol Bike Polo's website
   - [ ] Heroku
 - [ ] Set up Sentry
   - [ ] Heroku only
+- [ ] Terraform?
   
 ## BE TODO list
 - [ ] Players app
