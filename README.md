@@ -7,8 +7,8 @@ Bristol Bike Polo's website
 - [ ] Set up Redis caching
   - [ ] Local
   - [ ] Heroku
-- [ ] Set up Sentry
-  - [ ] Heroku only
+- [x] Set up Sentry
+  - [x] Heroku only
   
 ## BE TODO list
 - [ ] Players app
