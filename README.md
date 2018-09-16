@@ -23,3 +23,4 @@ Bristol Bike Polo's website
   
 ## FE TODO list
 - [ ] ...
+- [ ] Set up Sentry

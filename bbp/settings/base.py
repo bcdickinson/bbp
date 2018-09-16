@@ -48,7 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'bbp.leagues.apps.LeaguesConfig',
     'bbp.pages.apps.PagesConfig',
+    'bbp.players.apps.PlayersConfig',
+    'bbp.teams.apps.TeamsConfig',
+    'bbp.tournaments.apps.TournamentsConfig',
 ]
 
 MIDDLEWARE = [
