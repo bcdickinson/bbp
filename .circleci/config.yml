@@ -38,10 +38,6 @@ jobs:
           command: |
             pipenv run ./manage.py test
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
-
   deploy:
     docker:
       - image: buildpack-deps:trusty
