@@ -9,7 +9,6 @@ Bristol Bike Polo's website
   - [ ] Heroku
 - [ ] Set up Sentry
   - [ ] Heroku only
-- [ ] Terraform?
   
 ## BE TODO list
 - [ ] Players app
@@ -20,6 +19,10 @@ Bristol Bike Polo's website
   - [ ] ...
 - [ ] Tournaments app
   - [ ] ...
+- [ ] favicon
+- [ ] base template
+  - [ ] GA
+  - [ ] wagtail-schema.org!
   
 ## FE TODO list
 - [ ] ...
