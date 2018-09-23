@@ -8,14 +8,13 @@ name = "pypi"
 isort = "*"
 
 [packages]
-wagtail = "*"
-python-dotenv = "*"
-gunicorn = "*"
 dj-database-url = "*"
-psycopg2-binary = "*"
 django-heroku = "*"
-scout-apm = "*"
+gunicorn = "*"
 raven = "*"
+scout-apm = "*"
+social-auth-app-django = "*"
+wagtail = "*"
 
 [requires]
 python_version = "3.6"

@@ -13,7 +13,6 @@ import os
 
 import dj_database_url
 import django_heroku
-import raven
 
 env = os.environ.copy()
 
@@ -51,11 +50,14 @@ INSTALLED_APPS = [
 
     'raven.contrib.django.raven_compat',
 
+    'social_django',
+
     'bbp.leagues.apps.LeaguesConfig',
     'bbp.pages.apps.PagesConfig',
     'bbp.players.apps.PlayersConfig',
     'bbp.teams.apps.TeamsConfig',
     'bbp.tournaments.apps.TournamentsConfig',
+    'bbp.users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -93,12 +95,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bbp.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+AUTH_USER_MODEL = 'users.BBPUser'
 
 DATABASES = {
-    'default': dj_database_url.config(),
+    'default': dj_database_url.config(conn_max_age=600),
 }
 
 
@@ -162,11 +162,6 @@ if 'BASE_URL' in env:
     BASE_URL = env['BASE_URL']
 
 
-# Heroku
-
-django_heroku.settings(locals(), databases=False)
-
-
 # Raven
 
 if 'SENTRY_DSN' in env:
@@ -176,3 +171,13 @@ if 'SENTRY_DSN' in env:
 
     if 'SENTRY_ENVIRONMENT' in env:
         RAVEN_CONFIG['environment'] = env['SENTRY_ENVIRONMENT']
+
+
+# Python Social Auth
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+
+# Heroku
+
+django_heroku.settings(locals(), databases=False)
