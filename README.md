@@ -23,6 +23,7 @@ Bristol Bike Polo's website
 - [ ] base template
   - [ ] GA
   - [ ] wagtail-schema.org!
+- [ ] Scheduling plugin (scheduled pages etc.)
   
 ## FE TODO list
 - [ ] ...
