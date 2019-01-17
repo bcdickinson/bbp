@@ -1,7 +1,7 @@
 {% load static wagtailuserbar %}
 
 <!DOCTYPE html>
-<html class="no-js">
+<html>
     <head>
         <meta charset="utf-8" />
         <title>
@@ -10,7 +10,7 @@
             {% endblock %}
             {% block title_suffix %}
                 {% with self.get_site.site_name as site_name %}
-                    {% if site_name %}- {{ site_name }}{% endif %}
+                    {% if site_name %}| {{ site_name }}{% endif %}
                 {% endwith %}
             {% endblock %}
         </title>
