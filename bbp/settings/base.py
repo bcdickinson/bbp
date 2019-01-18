@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'scout_apm.django',
 
     'wagtail.contrib.forms',
+    'wagtail.contrib.modeladmin',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
     'wagtail.sites',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'raven.contrib.django.raven_compat',
 
     'social_django',
+    'wagtailmenus',
 
     'bbp.leagues.apps.LeaguesConfig',
     'bbp.pages.apps.PagesConfig',
@@ -88,6 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'wagtailmenus.context_processors.wagtailmenus',
             ],
         },
     },
@@ -152,6 +155,20 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+# Caching
+
+if 'REDIS_URL' in env:
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": env['REDIS_URL'],
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            }
+        }
+    }
 
 
 # Wagtail settings

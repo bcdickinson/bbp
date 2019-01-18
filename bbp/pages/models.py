@@ -9,6 +9,8 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 class BasicPage(Page):
+    show_in_menus_default = True
+
     introduction = models.TextField()
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
