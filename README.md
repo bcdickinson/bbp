@@ -4,18 +4,10 @@
 Bristol Bike Polo's website
 
 ## Infra TODO list
-- [ ] Downstream caching
+- [ ] Downstream caching (requires a domain)
   
 ## BE TODO list
-- [ ] TLS/security in general!
-- [ ] Players app
-  - [ ] ...
-- [ ] Teams app
-  - [ ] ...
-- [ ] Leagues app
-  - [ ] ...
-- [ ] Tournaments app
-  - [ ] ...
+- [x] TLS/security in general!
 - [ ] favicon
 - [ ] base template
   - [ ] GA
