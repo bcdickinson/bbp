@@ -54,11 +54,7 @@ INSTALLED_APPS = [
     'social_django',
     'wagtailmenus',
 
-    'bbp.leagues.apps.LeaguesConfig',
     'bbp.pages.apps.PagesConfig',
-    'bbp.players.apps.PlayersConfig',
-    'bbp.teams.apps.TeamsConfig',
-    'bbp.tournaments.apps.TournamentsConfig',
     'bbp.users.apps.UsersConfig',
 ]
 
