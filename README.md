@@ -7,6 +7,7 @@ Bristol Bike Polo's website
 - [ ] Downstream caching
   
 ## BE TODO list
+- [ ] TLS/security in general!
 - [ ] Players app
   - [ ] ...
 - [ ] Teams app
