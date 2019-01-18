@@ -4,11 +4,7 @@
 Bristol Bike Polo's website
 
 ## Infra TODO list
-- [ ] Set up Redis caching
-  - [ ] Local
-  - [ ] Heroku
-- [x] Set up Sentry
-  - [x] Heroku only
+- [ ] Downstream caching
   
 ## BE TODO list
 - [ ] Players app
@@ -26,5 +22,6 @@ Bristol Bike Polo's website
 - [ ] Scheduling plugin (scheduled pages etc.)
   
 ## FE TODO list
-- [ ] ...
+- [ ] Basic webpack build process
+- [ ] Bootstrap
 - [ ] Set up Sentry
