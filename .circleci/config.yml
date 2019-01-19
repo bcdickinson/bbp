@@ -20,15 +20,15 @@ jobs:
       - run:
           name: install linters 
           command: |
-            pip install --user flake8 isort && export PATH=$HOME/.local/bin:$PATH
+            pipenv install flake8 isort
 
       - run:
           name: flake8
-          command: flake8
+          command: pipenv run flake8
 
       - run:
           name: isort
-          command: isort --check-only
+          command: pipenv run isort --check-only
 
       - setup_remote_docker
 
