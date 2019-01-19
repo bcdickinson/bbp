@@ -20,7 +20,7 @@ jobs:
       - run:
           name: install linters 
           command: |
-            pipenv install flake8 isort
+            pipenv install --skip-lock flake8 isort
 
       - run:
           name: flake8
