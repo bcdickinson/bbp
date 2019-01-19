@@ -7,7 +7,6 @@ Bristol Bike Polo's website
 - [ ] Downstream caching (requires a domain)
   
 ## BE TODO list
-- [x] TLS/security in general!
 - [ ] Dockerise (buildpacks are faff)
 - [ ] Whitenoise
 - [ ] favicon

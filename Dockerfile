@@ -30,4 +30,7 @@ COPY --chown=bbp . .
 
 USER bbp
 
-CMD gunicorn -b :8000 bbp.wsgi:application
+CMD gunicorn --access-logfile - \
+             --bind :8000 \
+             --worker-class gevent \
+             bbp.wsgi:application

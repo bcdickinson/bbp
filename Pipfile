@@ -10,7 +10,7 @@ fabric = "*"
 
 [packages]
 dj-database-url = "*"
-gunicorn = "*"
+gunicorn = {extras = ["gevent"],version = "*"}
 raven = "*"
 scout-apm = "*"
 social-auth-app-django = "*"
