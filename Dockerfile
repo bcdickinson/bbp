@@ -20,7 +20,6 @@ WORKDIR /app
 
 RUN useradd -m bbp
 
-RUN apt-get update
 RUN pip install pipenv
 
 COPY Pipfile* ./
