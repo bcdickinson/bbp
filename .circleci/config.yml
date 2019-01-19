@@ -20,7 +20,7 @@ jobs:
       - run:
           name: install linters 
           command: |
-            pip install --user flake8 isort
+            pip install --user flake8 isort && export PATH=$HOME/.local/bin:$PATH
 
       - run:
           name: flake8
