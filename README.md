@@ -8,6 +8,8 @@ Bristol Bike Polo's website
   
 ## BE TODO list
 - [x] TLS/security in general!
+- [ ] Dockerise (buildpacks are faff)
+- [ ] Whitenoise
 - [ ] favicon
 - [ ] base template
   - [ ] GA
@@ -18,3 +20,10 @@ Bristol Bike Polo's website
 - [ ] Basic webpack build process
 - [ ] Bootstrap
 - [ ] Set up Sentry
+
+## Regenerating lockfiles for a new image
+
+```sh
+npm install --package-lock-only
+pipenv lock
+```

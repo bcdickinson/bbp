@@ -1,0 +1,6 @@
+/.circleci/
+/.git/
+/.gitignore
+/.nvmrc
+/node_modules/
+/staticfiles
