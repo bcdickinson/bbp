@@ -19,6 +19,7 @@ wagtailmenus = "*"
 django-redis = "*"
 django = "*"
 psycopg2-binary = "*"
+whitenoise = {extras = ["brotli"],version = "*"}
 
 [requires]
 python_version = "3.7"

@@ -1,5 +1,5 @@
 # Frontend build
-FROM node:8-alpine AS frontend
+FROM node:8-alpine AS webpack
 
 WORKDIR /app
 
@@ -26,9 +26,10 @@ COPY Pipfile* ./
 RUN pipenv install --system
 
 COPY --chown=bbp . .
+COPY --chown=bbp --from=webpack /app/bbp/static ./bbp/static/
+RUN SECRET_KEY=null ./manage.py collectstatic --no-input
 
 USER bbp
-
 CMD gunicorn --access-logfile - \
              --bind :8000 \
              --worker-class gevent \

@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.6-stretch-node
+      - image: circleci/buildpack-deps:trusty
         environment:
           SECRET_KEY: secretkeyfortests
           DATABASE_URL: postgresql://root@localhost/circle_test
@@ -16,61 +16,56 @@ jobs:
 
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - cache-{{ checksum "Pipfile.lock" }}
-          - cache-
+      - setup_remote_docker
 
       - run:
-          name: install dependencies
-          command: pipenv sync --dev
+          name: Build
+          command: docker-compose build
 
-      - save_cache:
-          key: cache-{{ checksum "Pipfile.lock" }}
-          paths:
-            - ~/.local
-            - ~/.cache
+      # - save_cache:
+      #     key: cache-{{ checksum "Pipfile.lock" }}
+      #     paths:
+      #       - ~/.local
+      #       - ~/.cache
 
-      - run:
-          name: check for missing migrations
-          command: |
-            pipenv run ./manage.py makemigrations --check
+      # - run:
+      #     name: check for missing migrations
+      #     command: |
+      #       pipenv run ./manage.py makemigrations --check
 
-      - run:
-          name: flake8
-          command: |
-            pipenv run flake8
+      # - run:
+      #     name: flake8
+      #     command: |
+      #       pipenv run flake8
 
-      - run:
-          name: isort
-          command: |
-            pipenv run isort --check-only
+      # - run:
+      #     name: isort
+      #     command: |
+      #       pipenv run isort --check-only
 
-      - run:
-          name: run tests
-          command: |
-            pipenv run ./manage.py test
+      # - run:
+      #     name: run tests
+      #     command: |
+      #       pipenv run ./manage.py test
 
-  deploy:
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - run:
-          name: Deploy master to Heroku
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+  # deploy:
+  #   docker:
+  #     - image: buildpack-deps:trusty
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Deploy master to Heroku
+  #         command: |
+  #           git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+# workflows:
+  # version: 2
+  # build-deploy:
+  #   jobs:
+  #     - build
+  #     - deploy:
+  #         requires:
+  #           - build
+  #         filters:
+  #           branches:
+  #             only: master
