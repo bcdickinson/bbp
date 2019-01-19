@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/buildpack-deps:trusty
+      - image: circleci/python:3-stretch
         environment:
           SECRET_KEY: secretkeyfortests
           DATABASE_URL: postgresql://root@localhost/circle_test
@@ -16,37 +16,37 @@ jobs:
 
     steps:
       - checkout
+
+      - run:
+          name: install linters 
+          command: |
+            pip install flake8 isort
+
+      - run:
+          name: flake8
+          command: |
+            docker-compose run web flake8
+
+      - run:
+          name: isort
+          command: |
+            docker-compose run web isort --check-only
+
       - setup_remote_docker
 
       - run:
-          name: Build
+          name: build image 
           command: docker-compose build
 
-      # - save_cache:
-      #     key: cache-{{ checksum "Pipfile.lock" }}
-      #     paths:
-      #       - ~/.local
-      #       - ~/.cache
+      - run:
+          name: check for missing migrations
+          command: |
+            docker-compose run --rm web ./manage.py makemigrations --check
 
-      # - run:
-      #     name: check for missing migrations
-      #     command: |
-      #       pipenv run ./manage.py makemigrations --check
-
-      # - run:
-      #     name: flake8
-      #     command: |
-      #       pipenv run flake8
-
-      # - run:
-      #     name: isort
-      #     command: |
-      #       pipenv run isort --check-only
-
-      # - run:
-      #     name: run tests
-      #     command: |
-      #       pipenv run ./manage.py test
+      - run:
+          name: run tests
+          command: |
+             docker-compose run --rm web ./manage.py test
 
   # deploy:
   #   docker:
