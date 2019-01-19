@@ -18,7 +18,7 @@ jobs:
       - checkout
 
       - run:
-          name: install linters 
+          name: Install linters 
           command: |
             pipenv install --skip-lock flake8 isort
 
@@ -33,16 +33,16 @@ jobs:
       - setup_remote_docker
 
       - run:
-          name: build image 
+          name: Build image 
           command: docker-compose build
 
       - run:
-          name: check for missing migrations
+          name: Check for missing migrations
           command: |
             docker-compose run --rm web ./manage.py makemigrations --check
 
       - run:
-          name: run tests
+          name: Run tests
           command: |
              docker-compose run --rm web ./manage.py test
 
