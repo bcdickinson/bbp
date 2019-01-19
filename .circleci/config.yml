@@ -24,13 +24,11 @@ jobs:
 
       - run:
           name: flake8
-          command: |
-            docker-compose run web flake8
+          command: flake8
 
       - run:
           name: isort
-          command: |
-            docker-compose run web isort --check-only
+          command: isort --check-only
 
       - setup_remote_docker
 
