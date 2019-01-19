@@ -2,5 +2,9 @@
 /.git/
 /.gitignore
 /.nvmrc
+/.pgdata/
+/Dockerfile
+/README.md
+/docker-compose.yml
 /node_modules/
 /staticfiles

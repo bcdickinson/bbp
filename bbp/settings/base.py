@@ -12,13 +12,19 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 import dj_database_url
-import django_heroku
 
 env = os.environ.copy()
 
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
+
+# Security settings
+
+SECRET_KEY = env['SECRET_KEY']
+
+if 'ALLOWED_HOSTS' in env:
+    ALLOWED_HOSTS = env['ALLOWED_HOSTS'].split(',')
 
 
 # Application definition
@@ -189,8 +195,3 @@ if 'SENTRY_DSN' in env:
 # Python Social Auth
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-
-
-# Heroku
-
-django_heroku.settings(locals(), databases=False)

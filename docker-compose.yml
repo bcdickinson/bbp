@@ -1,0 +1,32 @@
+version: '3.2'
+
+services:
+  web:
+    build: .
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DATABASE_URL=postgres://bbp:bbp@postgres:5432/bbp
+      - DJANGO_SETTINGS_MODULE=bbp.settings.dev
+      - REDIS_URL=redis://redis:6379
+      - SECRET_KEY=notverysecret
+      - WEB_CONCURRENCY=1
+    ports:
+      - "80:8000"
+
+  postgres:
+    image: "postgres:alpine"
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=bbp
+      - POSTGRES_PASSWORD=bbp
+      - POSTGRES_USER=bbp
+    volumes:
+      - type: bind
+        source: ./.pgdata
+        target: /var/lib/postgresql/data/pgdata
+
+  redis:
+    image: "redis:alpine"

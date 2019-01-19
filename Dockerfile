@@ -14,7 +14,7 @@ FROM python:3.7-stretch
 
 EXPOSE 8000
 
-ENV DJANGO_SETTINGS_MODULE bbp.settings.production
+ENV DJANGO_SETTINGS_MODULE bbp.settings.prod
 
 WORKDIR /app
 
@@ -23,10 +23,11 @@ RUN useradd -m bbp
 RUN apt-get update
 RUN pip install pipenv
 
-COPY --chown=bbp . .
-
+COPY Pipfile* ./
 RUN pipenv install --system
+
+COPY --chown=bbp . .
 
 USER bbp
 
-CMD gunicorn bbp.wsgi:application
+CMD gunicorn -b :8000 bbp.wsgi:application

@@ -6,10 +6,10 @@ name = "pypi"
 [dev-packages]
 "flake8" = "*"
 isort = "*"
+fabric = "*"
 
 [packages]
 dj-database-url = "*"
-django-heroku = "*"
 gunicorn = "*"
 raven = "*"
 scout-apm = "*"
@@ -17,6 +17,8 @@ social-auth-app-django = "*"
 wagtail = "*"
 wagtailmenus = "*"
 django-redis = "*"
+django = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
