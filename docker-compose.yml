@@ -24,9 +24,12 @@ services:
       - POSTGRES_PASSWORD=bbp
       - POSTGRES_USER=bbp
     volumes:
-      - type: bind
-        source: ./.pgdata
+      - type: volume
+        source: pgdata
         target: /var/lib/postgresql/data/pgdata
 
   redis:
     image: "redis:alpine"
+
+volumes:
+  pgdata:

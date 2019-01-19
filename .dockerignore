@@ -2,7 +2,6 @@
 /.git/
 /.gitignore
 /.nvmrc
-/.pgdata/
 /Dockerfile
 /README.md
 /bbp/static
