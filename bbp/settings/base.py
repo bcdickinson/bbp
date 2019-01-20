@@ -190,7 +190,9 @@ if 'BASE_URL' in env:
 if 'SENTRY_DSN' in env:
     sentry_sdk.init(
         dsn=env['SENTRY_DSN'],
+        environment=env.get('SENTRY_ENVIRONMENT'),
         integrations=[sentry_sdk.integrations.django.DjangoIntegration()],
+        release=env.get('HEROKU_RELEASE_VERSION'),
         send_default_pii=True,
     )
 
