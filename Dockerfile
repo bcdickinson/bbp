@@ -21,16 +21,21 @@ FROM python:3.7-stretch
 EXPOSE 8000
 RUN useradd -m bbp
 
+# Build args
+ARG PIPENV_INSTALL_FLAGS
+
 # Environment
 ENV DJANGO_SETTINGS_MODULE bbp.settings.prod
 ENV PORT 8000
+ENV PIPENV_INSTALL_FLAGS ${PIPENV_INSTALL_FLAGS:-""}
+ENV PYTHONUNBUFFERED true
 ENV WEB_CONCURRENCY 3
 
 # Python dependencies
 WORKDIR /app
 RUN pip install pipenv
 COPY Pipfile* ./
-RUN pipenv install --system
+RUN pipenv install --system ${PIPENV_INSTALL_FLAGS}
 
 # App and static files
 COPY --chown=bbp . .

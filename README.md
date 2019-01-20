@@ -4,10 +4,10 @@
 Bristol Bike Polo's website
 
 ## Infra TODO list
-- [ ] Downstream caching (requires a domain)
+- [ ] Downstream caching (requires a domain). Cloudflare?
+- [ ] Heroku-ify image ($PORT etc.)
   
 ## BE TODO list
-- [ ] Heroku-ify image ($PORT etc.)
 - [ ] favicon
 - [ ] base template
   - [ ] GA
@@ -19,9 +19,24 @@ Bristol Bike Polo's website
 - [ ] Bootstrap
 - [ ] Set up Sentry
 
-## Regenerating lockfiles for a new image
+## Development tasks
+
+Common dev task cheat sheet.
+
+### Regenerating lockfiles for a new image
 
 ```sh
 npm install --package-lock-only
 pipenv lock
+```
+### Local interactive debugging with modified code
+
+The app image needs to have the dev dependencies installed (includes `pudb`):
+```sh
+docker-compose build --build-arg PIPENV_INSTALL_FLAGS=--dev web
+```
+Now you can add some debug code, `set_trace()` calls, etc. to your local code.
+Then you can run the server with the modified code (no need to rebuild the image):
+```sh
+docker-compose run --rm -e PYTHONDONTWRITEBYTECODE=1 -v $(pwd):/app web
 ```
