@@ -13,6 +13,7 @@ import os
 
 import dj_database_url
 import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 env = os.environ.copy()
 
@@ -191,7 +192,7 @@ if 'SENTRY_DSN' in env:
     sentry_sdk.init(
         dsn=env['SENTRY_DSN'],
         environment=env.get('SENTRY_ENVIRONMENT'),
-        integrations=[sentry_sdk.integrations.django.DjangoIntegration()],
+        integrations=[DjangoIntegration()],
         release=env.get('HEROKU_RELEASE_VERSION'),
         send_default_pii=True,
     )
