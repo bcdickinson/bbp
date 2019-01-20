@@ -7,8 +7,7 @@ Bristol Bike Polo's website
 - [ ] Downstream caching (requires a domain)
   
 ## BE TODO list
-- [ ] Dockerise (buildpacks are faff)
-- [ ] Whitenoise
+- [ ] Heroku-ify image ($PORT etc.)
 - [ ] favicon
 - [ ] base template
   - [ ] GA
