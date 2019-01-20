@@ -26,7 +26,7 @@ Bristol Bike Polo's website
 - [ ] robots.txt
 - [ ] sitemap
 - [ ] 12 Factor shiz
-  - [ ] Sentry integration
+  - [x] Sentry integration
   - [ ] Scout integration
 
 ### Frontend
