@@ -12,7 +12,6 @@ invoke = "*"
 [packages]
 dj-database-url = "*"
 gunicorn = {extras = ["gevent"],version = "*"}
-raven = "*"
 scout-apm = "*"
 social-auth-app-django = "*"
 wagtail = "*"
@@ -21,6 +20,7 @@ django-redis = "*"
 django = "*"
 psycopg2-binary = "*"
 whitenoise = {extras = ["brotli"],version = "*"}
+sentry-sdk = "*"
 
 [requires]
 python_version = "3.7"

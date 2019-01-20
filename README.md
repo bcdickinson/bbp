@@ -3,16 +3,22 @@
 # BBP
 Bristol Bike Polo's website
 
-## Infra TODO list
+
+## To-do lists
+
+### Infrastructure
 - [x] Heroku-ify image (`$PORT` etc.)
 - [ ] Deployments from CircleCI
 - [ ] Release phase stuff (migrations)
+- [ ] S3 for media files
+  - [ ] Some means of pulling them down for dev
 - [ ] Downstream caching (requires a domain)... Cloudflare?
   - [ ] Buy a dev domain
   - [ ] Setup Cloudflare
 - [ ] Scheduling plugin (scheduled pages etc.)
+- [ ] Terraform
 
-## BE TODO list
+### Backend
 - [ ] favicon
 - [ ] base template
   - [ ] GA
@@ -23,10 +29,13 @@ Bristol Bike Polo's website
   - [ ] Sentry integration
   - [ ] Scout integration
 
-## FE TODO list
+### Frontend
 - [ ] Basic webpack build process
 - [ ] Bootstrap
+- [ ] Design? Components.
 - [ ] Set up Sentry
+- [ ] PWA for tournament stuff
+
 
 ## Common development tasks
 
@@ -41,14 +50,25 @@ pipenv lock
 ### Local interactive debugging with modified code
 
 The app image needs to have the dev dependencies installed (includes `pudb`):
+
 ```sh
 docker-compose build --build-arg PIPENV_INSTALL_FLAGS=--dev web
 ```
 Now you can add some debug code, `set_trace()` calls, etc. to your local code.
 Then you can run the server with the modified code (no need to rebuild the image):
+
 ```sh
 docker-compose run --rm -e PYTHONDONTWRITEBYTECODE=1 -v $(pwd):/app web
 ```
 
 _NB - There's a probably a way to do this with `pudb` installed on the host and shared to the container
 via a volume, but rebuilding the image is fine for now._
+
+### Load DB backup
+
+The database needs to be running for the following commands (`docker-compose start postgres`).
+
+```sh
+docker-compose exec postgres psql -Ubbp -c "DROP SCHEMA public CASCADE;"
+docker-compose exec -T postgres pg_restore -O -Ubbp -dbbp < $BACKUP_FILE
+```

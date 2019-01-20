@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 import dj_database_url
+import sentry_sdk
 
 env = os.environ.copy()
 
@@ -54,8 +55,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'raven.contrib.django.raven_compat',
 
     'social_django',
     'wagtailmenus',
@@ -189,12 +188,11 @@ if 'BASE_URL' in env:
 # Raven
 
 if 'SENTRY_DSN' in env:
-    RAVEN_CONFIG = {
-        'dsn': env['SENTRY_DSN'],
-    }
-
-    if 'SENTRY_ENVIRONMENT' in env:
-        RAVEN_CONFIG['environment'] = env['SENTRY_ENVIRONMENT']
+    sentry_sdk.init(
+        dsn=env['SENTRY_DSN'],
+        integrations=[sentry_sdk.integrations.django.DjangoIntegration()],
+        send_default_pii=True,
+    )
 
 
 # Python Social Auth
