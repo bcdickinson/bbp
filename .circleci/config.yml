@@ -15,9 +15,9 @@ jobs:
       - checkout
 
       - run:
-          name: Install linters 
+          name: Install dev dependencies (includes linters)
           command: |
-            pipenv install --skip-lock flake8 isort
+            pipenv install --dev --ignore-pipfile
 
       - run:
           name: flake8
@@ -30,8 +30,9 @@ jobs:
       - setup_remote_docker
 
       - run:
-          name: Build image 
+          name: Build image
           command: docker-compose build
+
 
       - run:
           name: Check for missing migrations
