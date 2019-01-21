@@ -35,6 +35,7 @@ Bristol Bike Polo's website
 - [ ] Design? Components.
 - [ ] Set up Sentry
 - [ ] PWA for tournament stuff
+- [ ] React, styled components, CSS-in-JS, emotion, CSS grid
 
 
 ## Common development tasks

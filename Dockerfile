@@ -35,7 +35,7 @@ ENV WEB_CONCURRENCY 3
 WORKDIR /app
 RUN pip install pipenv
 COPY Pipfile* ./
-RUN pipenv install --system ${PIPENV_INSTALL_FLAGS}
+RUN pipenv install --system --deploy ${PIPENV_INSTALL_FLAGS}
 
 # App and static files
 COPY --chown=bbp . .
