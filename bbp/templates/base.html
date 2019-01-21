@@ -26,9 +26,15 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% include 'navigation.html' %}
+        {% block header %}
+            {% include 'header.html' %}
+        {% endblock %}
 
         {% block content %}{% endblock %}
+
+        {% block footer %}
+            {% include 'footer.html' %}
+        {% endblock %}
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

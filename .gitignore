@@ -1,6 +1,5 @@
 /.env
 /.pgdata/
-/bbp/static/
 /db.sqlite3
 /node_modules/
 /staticfiles/

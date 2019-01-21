@@ -1,17 +1,3 @@
-##################
-# Frontend build #
-##################
-
-FROM node:8-alpine AS webpack
-
-WORKDIR /app
-
-COPY package*.json webpack.config.js ./
-COPY bbp/static_src bbp/static_src
-
-RUN npm ci && npm run build
-
-
 ##############
 # Django app #
 ##############
@@ -39,7 +25,6 @@ RUN pipenv install --system --deploy ${PIPENV_INSTALL_FLAGS}
 
 # App and static files
 COPY --chown=bbp . .
-COPY --chown=bbp --from=webpack /app/bbp/static ./bbp/static/
 RUN SECRET_KEY=null ./manage.py collectstatic --no-input
 
 USER bbp
