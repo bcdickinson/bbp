@@ -73,3 +73,10 @@ The database needs to be running for the following commands (`docker-compose sta
 docker-compose exec postgres psql -Ubbp -c "DROP SCHEMA public CASCADE;"
 docker-compose exec -T postgres pg_restore -O -Ubbp -dbbp < $BACKUP_FILE
 ```
+### Fix "permission denied" errors when uploading media
+
+Annoyingly, you can't specify the user and group of a volume when it's created (it will always be `root:root`),
+so you have to manually `chown` the mount once the container has been created:
+```sh
+docker-compose run --rm --user root web chown bbp:bbp media/
+```
