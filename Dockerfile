@@ -1,7 +1,17 @@
+##################
+# Frontend build #
+##################
+FROM node:lts AS frontend-build
+
+WORKDIR /build
+
+# Dummy build step for now
+COPY bbp/static_src/ ./static_buiild/
+
+
 ##############
 # Django app #
 ##############
-
 FROM python:3.7-stretch
 
 EXPOSE 8000
@@ -25,6 +35,7 @@ RUN pipenv install --system --deploy ${PIPENV_INSTALL_FLAGS}
 
 # App and static files
 COPY --chown=bbp . .
+COPY --chown=bbp --from=frontend-build /buiid/static_buiild bbp/static_buiild
 RUN SECRET_KEY=null ./manage.py collectstatic --no-input
 
 USER bbp

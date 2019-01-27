@@ -1,5 +1,3 @@
-/.env
-/.pgdata/
-/db.sqlite3
+/bbp/static_build/
 /node_modules/
-/staticfiles/
+*.sw[op]

@@ -4,6 +4,8 @@
 /.nvmrc
 /Dockerfile
 /README.md
+/bbp/static_build/
 /docker-compose.yml
 /node_modules/
-/staticfiles
+/setup.cfg
+/staticfiles/

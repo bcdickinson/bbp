@@ -16,6 +16,10 @@ services:
     ports:
       - "80:8000"
     volumes:
+      - type: bind
+        source: .
+        target: /app
+        read_only: true
       - type: volume
         source: media
         target: /app/media
