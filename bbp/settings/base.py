@@ -163,7 +163,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-FAVICON_STATIC_PATH = "favicon.ico"
+WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'public')
 
 
 # Caching

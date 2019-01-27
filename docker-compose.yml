@@ -10,6 +10,7 @@ services:
       - ALLOWED_HOSTS=localhost,127.0.0.1
       - DATABASE_URL=postgres://bbp:bbp@postgres:5432/bbp
       - DJANGO_SETTINGS_MODULE=bbp.settings.dev
+      - PYTHONDONTWRITEBYTECODE=1
       - REDIS_URL=redis://redis:6379
       - SECRET_KEY=notverysecret
       - WEB_CONCURRENCY=1
@@ -19,10 +20,6 @@ services:
       - type: bind
         source: .
         target: /app
-        read_only: true
-      - type: volume
-        source: media
-        target: /app/media
 
   postgres:
     image: "postgres:alpine"
@@ -40,5 +37,4 @@ services:
     image: "redis:alpine"
 
 volumes:
-  media:
   pgdata:
