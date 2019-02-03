@@ -1,3 +1,4 @@
 /bbp/static_build/
+/media/
 /node_modules/
 *.sw[op]

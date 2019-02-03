@@ -21,6 +21,8 @@ django = "*"
 psycopg2-binary = "*"
 whitenoise = {extras = ["brotli"],version = "*"}
 sentry-sdk = "*"
+django-storages = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.7"

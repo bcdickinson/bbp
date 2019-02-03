@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'social_django',
+    'storages',
     'wagtailmenus',
 
     'bbp.pages.apps.PagesConfig',
@@ -203,3 +204,21 @@ if 'SENTRY_DSN' in env:
 # Python Social Auth
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+# Storages
+if (
+    'AWS_ACCESS_KEY_ID' in env and
+    'AWS_SECRET_ACCESS_KEY' in env and
+    'AWS_STORAGE_BUCKET_NAME' in env
+):
+    AWS_ACCESS_KEY_ID = env['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = env['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = env['AWS_STORAGE_BUCKET_NAME']
+
+    AWS_S3_CUSTOM_DOMAIN = env.get(
+        'AWS_S3_CUSTOM_DOMAIN',
+        f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com',
+    )
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
