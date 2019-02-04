@@ -33,7 +33,6 @@ jobs:
           name: Build image
           command: docker-compose build
 
-
       - run:
           name: Check for missing migrations
           command: |

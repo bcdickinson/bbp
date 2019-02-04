@@ -3,10 +3,10 @@
 ##################
 FROM node:lts AS frontend-build
 
-WORKDIR /build
-
-# Dummy build step for now
-COPY bbp/static_src static_build
+WORKDIR /sass-build
+COPY package*.json bbp/static_src/scss ./
+RUN npm ci && \
+    node_modules/.bin/sass main.scss:main.css
 
 
 ##############
@@ -35,7 +35,7 @@ RUN pipenv install --system --deploy ${PIPENV_INSTALL_FLAGS}
 
 # App and static files
 COPY --chown=bbp . .
-COPY --chown=bbp --from=frontend-build /build/static_build bbp/static_build
+COPY --chown=bbp --from=frontend-build /sass-build/main.css bbp/static_build/css/main.css
 RUN SECRET_KEY=null ./manage.py collectstatic --no-input
 
 USER bbp
