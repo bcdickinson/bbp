@@ -1,5 +1,11 @@
-* {
-    font-family: acumin-pro, sans-serif;
-    font-weight: 300;
-    font-style: normal;
+@import 'variables';
+
+html {
+    color: $text-colour;
+    font-family: $fonts;
+    font-size: 20px;
+}
+
+body {
+    background-color: $bg-colour;
 }

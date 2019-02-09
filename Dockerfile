@@ -4,9 +4,11 @@
 FROM node:lts AS frontend-build
 
 WORKDIR /sass-build
-COPY package*.json bbp/static_src/scss ./
+COPY package*.json ./
+COPY bbp/static_src/scss bbp/static_src/scss
 RUN npm ci && \
-    node_modules/.bin/sass main.scss:main.css
+    mkdir -p bbp/static_build/css && \
+    npx sass bbp/static_src/scss/main.scss:bbp/static_build/css/main.css
 
 
 ##############
@@ -35,9 +37,13 @@ RUN pipenv install --system --deploy ${PIPENV_INSTALL_FLAGS}
 
 # App and static files
 COPY --chown=bbp . .
-COPY --chown=bbp --from=frontend-build /sass-build/main.css bbp/static_build/css/main.css
+COPY --chown=bbp --from=frontend-build /sass-build/bbp/static_build/css/main.css bbp/static_build/css/main.css
 RUN SECRET_KEY=null ./manage.py collectstatic --no-input
 
 USER bbp
 
-CMD gunicorn -c python:bbp.settings.gunicorn --bind :${PORT} bbp.wsgi:application
+CMD gunicorn \
+        --access-logfile - \
+        --bind :${PORT} \
+        --worker-class gevent \
+        bbp.wsgi:application

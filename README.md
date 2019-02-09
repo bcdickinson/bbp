@@ -30,15 +30,23 @@ Bristol Bike Polo's website
   - [ ] Scout integration
 
 ### Frontend
-- [ ] Basic webpack build process
-- [ ] Bootstrap
-- [ ] Design? Components.
-- [ ] Set up Sentry
+- [ ] CSS
+  - [ ] Basic layout styling
+  - [ ] Streamblock styling
+- [ ] JS
+  - [ ] Set up Sentry
+
+### Far-future craziness
 - [ ] PWA for tournament stuff
-- [ ] React, styled components, CSS-in-JS, emotion, CSS grid
 
 
 ## Common development tasks
+
+### Running the web service container with local files
+
+```sh
+ docker-compose run -d --service-ports -v $(pwd):/app web
+```
 
 ### Regenerating lockfiles for a new image
 
