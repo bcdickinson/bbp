@@ -1,9 +1,11 @@
+@import './vendor/normalize';
+
 @import 'variables';
 
 html {
     color: $text-colour;
     font-family: $fonts;
-    font-size: 20px;
+    font-size: 100%;
 }
 
 body {
