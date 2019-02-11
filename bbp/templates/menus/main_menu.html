@@ -1,0 +1,13 @@
+<ul class="main-menu">
+    <li class="menu-item logo-home-link">
+        <a href="/" title="Bristol Bike Polo">
+            <span class="logo">{% include 'bbp_logo.svg' %}</span>
+
+        </a>
+    </li>
+    {% for menu_item in menu_items %}
+        <li class="menu-item">
+            <a class="{{ menu_item.active_class }}" href="{{ menu_item.href }}">{{ menu_item.text }}</a>
+        </li>
+    {% endfor %}
+</ul>
