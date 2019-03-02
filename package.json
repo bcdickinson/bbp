@@ -2,11 +2,13 @@
   "name": "bbp",
   "private": true,
   "scripts": {
-    "watch:img": "npx cpx \"bbp/static_src/img/*\" bbp/static_build/img --clean --watch",
-    "watch:svg": "npx cpx \"bbp/static_src/svg/*\" bbp/static_build/svg --clean --watch",
-    "watch:scss": "npx sass --embed-sources --style compressed --watch bbp/static_src/scss/main.scss bbp/static_build/css/main.css",
     "watch:browser-sync": "npx browser-sync start --no-open --proxy localhost --files \"bbp/static_build/**/*\" \"bbp/public/*\" \"bbp/**/*.html\"",
+    "watch:img": "npx cpx \"bbp/static_src/img/*\" bbp/static_build/img --clean --watch",
+    "watch:js": "npx webpack bbp/static_src/js/main.js -o bbp/static_build/js/main.js --watch --devtool source-map --mode development",
+    "watch:scss": "npx sass --embed-sources --style compressed --watch bbp/static_src/scss/main.scss bbp/static_build/css/main.css",
     "watch:server": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000",
+    "watch:svg": "npx cpx \"bbp/static_src/svg/*\" bbp/static_build/svg --clean --watch",
+
     "start": "npx run-p watch:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,7 +21,9 @@
     "cpx": "^1.5.0",
     "npm-run-all": "^4.1.5",
     "sass": "^1.16.1",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.12.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   },
   "dependencies": {}
 }

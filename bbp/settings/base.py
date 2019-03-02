@@ -21,6 +21,7 @@ env = os.environ.copy()
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+
 # Security settings
 
 SECRET_KEY = env['SECRET_KEY']
@@ -190,7 +191,7 @@ if 'BASE_URL' in env:
     BASE_URL = env['BASE_URL']
 
 
-# Raven
+# Sentry
 
 if 'SENTRY_DSN' in env:
     sentry_sdk.init(
@@ -206,7 +207,9 @@ if 'SENTRY_DSN' in env:
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
+
 # Storages
+
 if (
     'AWS_ACCESS_KEY_ID' in env and
     'AWS_SECRET_ACCESS_KEY' in env and

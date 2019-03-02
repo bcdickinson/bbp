@@ -3,18 +3,26 @@
 
 
 html {
-    color: $text-colour;
+    color: $text-color;
     font-family: acumin-pro, sans-serif;
     font-size: 100%;
     font-weight: 400;
 }
 
 body {
-    background-color: $bg-colour;
+    background-color: $bg-color;
 }
 
-svg {
-    fill: currentColor;
+.layout {
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.block-image {
+    & > img {
+        width: 100%;
+    }
 }
 
 .sr-only {
@@ -35,27 +43,40 @@ svg {
     margin: 0;
     padding: 0;
     width: 100%;
-
-    a {
-        color: $text-colour;
-        text-decoration: none;
-
-        &.active {
-            text-decoration: underline;
-        }
-    }
 }
 
 .menu-item {
     padding: 0.5em;
 
-    &.logo-home-link {
+    &:first-child {
         flex-grow: 1;
-        svg {
-            $ratio: 111.1 / 100.8;  // From the original file
-            $height: 40px;
-            height: $height;
-            width: $height * $ratio;
-        }
+    }
+}
+
+.menu-item-link {
+    color: darken($text-color, 30);
+    text-decoration: none;
+
+    &.active {
+        color: $text-color;
+    }
+}
+
+.logo-home-link {
+    color: $text-color;
+    display: flex;
+    align-items: center;
+
+    svg {
+        $ratio: 111.1 / 100.8;  // From the original file
+        $height: 40px;
+        fill: $text-color;
+        height: $height;
+        width: $height * $ratio;
+    }
+
+    .logo-strapline {
+        font-size: 200%;
+        padding-left: 1rem;
     }
 }

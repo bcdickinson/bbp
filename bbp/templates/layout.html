@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Layout sandbox{% endblock %}
+{% block title_suffix %}| Bristol Bike Polo{% endblock %}
+
+{% block content %}
+    <h1>Heading 1</h1>
+    <p>{% lorem 3 random %}</p>
+    <blockquote>Beccie is nice</blockquote>
+    <cite>Benjy</cite>
+    <ol>
+        <li>Make website</li>
+        <li>Profit</li>
+    </ol>
+    <ul>
+        <li>Carrots</li>
+        <li>Soap</li>
+        <li>Hammers</li>
+    </ul>
+    <dl>
+        <dt>Frank</dt><dd>A nice penguin</dd>
+        <dt>Roadkill</dt><dd>A delightful badger</dd>
+    </dl>
+    <h2>Heading 2</h2>
+    <p>{% lorem 3 random %}</p>
+    <h3>Heading 3</h3>
+    <p>{% lorem 3 random %}</p>
+    <h4>Heading 4</h4>
+    <p>{% lorem 3 random %}</p>
+    <h5>Heading 5</h5>
+    <p>{% lorem 3 random %}</p>
+    <h6>Heading 6</h6>
+    <p>{% lorem 3 random %}</p>
+{% endblock content %}

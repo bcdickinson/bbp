@@ -19,3 +19,7 @@ if settings.DEBUG:
     # Serve  media files from development server
     from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    # Layout sandbox
+    from django.views.generic import TemplateView
+    urlpatterns.insert(0, path('layout/', TemplateView.as_view(template_name='layout.html')))
