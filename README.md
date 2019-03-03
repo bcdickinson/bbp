@@ -42,6 +42,7 @@ Bristol Bike Polo's website
     - [ ] SVG files
     - [x] JS files
     - [ ] Sass files
+    - [ ] Autoprefixer for IE11 grid
 
 ### Far-future craziness
 - [ ] PWA for tournament stuff

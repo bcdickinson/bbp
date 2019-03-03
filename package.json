@@ -2,12 +2,9 @@
   "name": "bbp",
   "private": true,
   "scripts": {
-    "watch:browser-sync": "npx browser-sync start --no-open --proxy localhost --files \"bbp/static_build/**/*\" \"bbp/public/*\" \"bbp/**/*.html\"",
-    "watch:img": "npx cpx \"bbp/static_src/img/*\" bbp/static_build/img --clean --watch",
+    "watch:browser-sync": "npx browser-sync start --no-open --proxy localhost --files \"bbp/static_build/**/*\" \"bbp/public/*\" \"bbp/**/*.html\" \"bbp/**/*.svg\"",
     "watch:webpack": "npx webpack --config webpack.dev.js --watch",
-    "watch:scss": "npx sass --embed-sources --style compressed --watch bbp/static_src/scss/main.scss bbp/static_build/css/main.css",
     "watch:server": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000",
-    "watch:svg": "npx cpx \"bbp/static_src/svg/*\" bbp/static_build/svg --clean --watch",
     "start": "npx run-p watch:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,12 +14,14 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
-    "cpx": "^1.5.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.15.0",
     "mini-css-extract-plugin": "^0.5.0",
     "npm-run-all": "^4.1.5",
     "sass": "^1.16.1",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-merge": "^4.2.1"
