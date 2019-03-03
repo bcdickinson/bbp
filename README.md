@@ -16,10 +16,9 @@ Bristol Bike Polo's website
   - [ ] Buy a dev domain
   - [ ] Setup Cloudflare
 - [ ] Scheduling plugin (scheduled pages etc.)
-- [ ] Terraform
 
 ### Backend
-- [ ] favicon
+- [x] favicon
 - [ ] base template
   - [ ] GA
   - [ ] Schema.org
@@ -27,7 +26,7 @@ Bristol Bike Polo's website
 - [ ] sitemap
 - [ ] 12 Factor shiz
   - [x] Sentry integration
-  - [ ] Scout integration
+  - [x] Scout integration
 
 ### Frontend
 - [ ] CSS
@@ -35,10 +34,17 @@ Bristol Bike Polo's website
   - [ ] Streamblock styling
 - [ ] JS
   - [ ] Set up Sentry
+- [ ] Tooling
+  - [ ] Webpack for all static assets
+    - [x] Prod and dev configs
+    - [ ] Update package.json and Dockerfile to use npm scripts for FE build
+    - [ ] Image files
+    - [ ] SVG files
+    - [x] JS files
+    - [ ] Sass files
 
 ### Far-future craziness
 - [ ] PWA for tournament stuff
-
 
 ## Common development tasks
 

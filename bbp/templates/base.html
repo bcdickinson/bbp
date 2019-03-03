@@ -30,23 +30,25 @@
 
         {% wagtailuserbar %}
 
-        <div class="layout">
-            <header>
-                {% block header %}
-                    {% include 'header.html' %}
-                {% endblock %}
-            </header>
+        {% block content %}
+            <div class="layout">
+                <header class="header">
+                    {% block header %}
+                        {% include 'header.html' %}
+                    {% endblock %}
+                </header>
 
-            <main>
-                {% block content %}{% endblock %}
-            </main>
+                <main class="main">
+                    {% block main %}{% endblock %}
+                </main>
 
-            <footer>
-                {% block footer %}
-                    {% include 'footer.html' %}
-                {% endblock %}
-            </footer>
-        </div>
+                <footer class="footer">
+                    {% block footer %}
+                        {% include 'footer.html' %}
+                    {% endblock %}
+                </footer>
+            </div>
+        {% endblock content %}
 
         <script src="{% static 'js/main.js' %}"></script>
         {% block extra_js %}{% endblock %}
