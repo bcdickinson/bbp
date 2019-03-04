@@ -7,7 +7,7 @@ module.exports = {
       filename: 'css/[name].css'
     })
   ],
-  entry: ['./bbp/static_src/js/main.js', 'bbp/static_src/scss$/main.scss'],
+  entry: ['./bbp/static_src/js/main.js', './bbp/static_src/scss/main.scss'],
   module: {
     rules: [
       {
