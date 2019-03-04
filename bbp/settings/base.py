@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'social_django',
     'storages',
     'wagtailmenus',
+    'webpack_loader',
 
     'bbp.pages.apps.PagesConfig',
     'bbp.users.apps.UsersConfig',
@@ -181,6 +182,13 @@ if 'REDIS_URL' in env:
         }
     }
 
+
+# Webpack Loader
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': '',
+    },
+}
 
 # Wagtail settings
 

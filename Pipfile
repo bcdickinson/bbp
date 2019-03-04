@@ -23,6 +23,7 @@ whitenoise = {extras = ["brotli"],version = "*"}
 sentry-sdk = "*"
 django-storages = "*"
 boto3 = "*"
+django-webpack-loader = "*"
 
 [requires]
 python_version = "3.7"

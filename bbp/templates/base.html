@@ -1,4 +1,5 @@
-{% load static wagtailuserbar %}
+{% load wagtailuserbar %}
+{% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@
         <meta name="description" content="" /> {# TODO description contents #}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        {% render_bundle 'main' 'css' %}
         <link rel="stylesheet" href="https://use.typekit.net/tsq3ljd.css">
 
         {% block extra_css %}{% endblock %}
@@ -50,7 +51,7 @@
             </div>
         {% endblock content %}
 
-        <script src="{% static 'js/main.js' %}"></script>
+        {% render_bundle 'main' 'js' %}
         {% block extra_js %}{% endblock %}
 
     </body>

@@ -2,18 +2,17 @@
   "name": "bbp",
   "private": true,
   "scripts": {
-    "watch:browser-sync": "npx browser-sync start --no-open --proxy localhost --files \"bbp/static_build/**/*\" \"bbp/public/*\" \"bbp/**/*.html\" \"bbp/**/*.svg\"",
-    "watch:webpack": "npx webpack --config webpack.dev.js --watch",
+    "build": "npx webpack --config webpack.prod.js",
+    "watch:webpack": "npx webpack-dev-server --config webpack.dev.js",
     "watch:server": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000",
-    "start": "npx run-p watch:*",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx run-p watch:*"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bcdickinson/bbp.git"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "clean-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
     "eslint": "^5.15.0",
     "eslint-plugin-import": "^2.16.0",
@@ -27,7 +26,9 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
+    "webpack-bundle-tracker": "^0.4.2-beta",
     "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {}

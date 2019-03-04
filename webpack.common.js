@@ -1,38 +1,18 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleTracker = require('webpack-bundle-tracker');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
-    })
-  ],
   entry: ['./bbp/static_src/js/main.js', './bbp/static_src/scss/main.scss'],
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              implementation: require("sass"),
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
-  },
+  plugins: [
+    new BundleTracker({
+      filename: './webpack-stats.json',
+      path: path.resolve(__dirname)
+    }),
+    new CleanWebpackPlugin()
+  ],
   output: {
-    filename: 'js/[name].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'bbp/static_build/')
   }
 };
