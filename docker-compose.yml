@@ -15,7 +15,7 @@ services:
       - SECRET_KEY=notverysecret
       - WEB_CONCURRENCY=1
     ports:
-      - "8000:8000"
+      - "80:8000"
 
   postgres:
     image: "postgres:alpine"

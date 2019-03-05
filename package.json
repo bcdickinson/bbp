@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "build": "npx webpack --config webpack.prod.js",
+    "start": "npx run-p -l watch:*",
     "watch:webpack": "npx webpack-dev-server --config webpack.dev.js",
-    "watch:server": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000",
-    "start": "npx run-p watch:*"
+    "watch:django": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000"
   },
   "repository": {
     "type": "git",
