@@ -1,3 +1,4 @@
+/* eslint-env node */
 const BundleTracker = require('webpack-bundle-tracker');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
