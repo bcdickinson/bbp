@@ -14,12 +14,12 @@ module.exports = merge(common, {
         test: /\.s?css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
+          'css-loader',
+          'postcss-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
-              implementation: require("sass"),
-              sourceMap: true
+              implementation: require('sass'),
             }
           }
         ]

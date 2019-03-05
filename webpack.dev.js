@@ -16,7 +16,7 @@ module.exports = merge(common, {
       }
     }
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
@@ -26,7 +26,12 @@ module.exports = merge(common, {
         test: /\.s?css$/,
         use: [
           "style-loader",
-          "css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
           {
             loader: "sass-loader",
             options: {

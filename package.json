@@ -3,17 +3,20 @@
   "private": true,
   "scripts": {
     "build": "npx webpack --config webpack.prod.js",
-    "start": "npx run-p -l watch:*",
-    "watch:webpack": "npx webpack-dev-server --config webpack.dev.js",
-    "watch:django": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000"
+    "start": "npx run-p -l serve:*",
+    "serve:webpack": "npx webpack-dev-server --config webpack.dev.js",
+    "serve:django": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bcdickinson/bbp.git"
   },
+  "browserslist": "> 2%",
   "devDependencies": {
+    "autoprefixer": "^9.4.10",
     "clean-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
+    "cssnano": "^4.1.10",
     "eslint": "^5.15.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
@@ -21,10 +24,12 @@
     "eslint-plugin-standard": "^4.0.0",
     "mini-css-extract-plugin": "^0.5.0",
     "npm-run-all": "^4.1.5",
+    "postcss-loader": "^3.0.0",
     "sass": "^1.16.1",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.29.6",
     "webpack-bundle-tracker": "^0.4.2-beta",
     "webpack-cli": "^3.2.3",

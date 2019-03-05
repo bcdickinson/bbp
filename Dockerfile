@@ -5,7 +5,7 @@ FROM node:lts AS frontend-build
 
 # TODO: replace this with npm scripts (use npm config variables in package.json)
 WORKDIR /build
-COPY package*.json webpack.*.js ./
+COPY package*.json webpack.*.js postcss.config.js ./
 COPY bbp/static_src/ bbp/static_src/
 RUN npm ci && \
     npx webpack --config webpack.prod.js
