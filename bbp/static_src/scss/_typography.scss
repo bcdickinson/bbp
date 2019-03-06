@@ -1,6 +1,58 @@
 html {
   color: $text-color;
-  font-family: acumin-pro, sans-serif;
-  font-size: 100%;
-  font-weight: 400;
+  font-family: semplicitapro, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+
+// Headings
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1em 0 1rem;
+}
+
+h3 {
+  font-size: 1.67rem;
+  font-weight: 700;
+  margin: 1em 0 1rem;
+}
+
+h4 {
+  font-size: 1.33rem;
+  font-weight: 700;
+  margin: 1em 0 1rem;
+}
+
+h5 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin: 1em 0 1rem;
+}
+
+h6 {
+  font-size: 1.11rem;
+  font-weight: 700;
+  margin: 1em 0 1rem;
+}
+
+
+// Blocks
+
+p {
+  margin: 1em 0;
+}
+
+
+// Links
+a {
+  color: $link-color;
 }
