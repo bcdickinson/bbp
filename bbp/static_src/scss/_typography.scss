@@ -1,6 +1,6 @@
 html {
   color: $text-color;
-  font-family: semplicitapro, sans-serif;
+  font-family: menco, sans-serif;
   font-size: 24px;
   font-weight: 300;
 }
@@ -55,4 +55,5 @@ p {
 // Links
 a {
   color: $link-color;
+  font-weight: 500;
 }

@@ -50,11 +50,10 @@ body {
   display: flex;
 
   svg {
-    $ratio: 111.1 / 100.8;  // From the original file
-    $height: 40px;
+    $height: 64px;
     fill: $text-color;
     height: $height;
-    width: $height * $ratio;
+    width: $height;
   }
 
   .logo-strapline {

@@ -51,6 +51,11 @@
             </div>
         {% endblock content %}
 
+        {% if SENTRY_DSN %}
+            <script>
+                var SENTRY_DSN = "{{ SENTRY_DSN|escapejs }}";
+            </script>
+        {% endif %}
         {% render_bundle 'main' 'js' %}
         {% block extra_js %}{% endblock %}
 

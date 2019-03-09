@@ -1,1 +1,5 @@
-console.log('I should probably do some JS at some point.');
+import * as Sentry from '@sentry/browser';
+
+if (typeof SENTRY_DSN !== 'undefined') {
+  Sentry.init({ dsn: SENTRY_DSN });
+}
