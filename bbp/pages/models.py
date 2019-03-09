@@ -5,11 +5,13 @@ from wagtail.core.models import Page
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 
+from .blocks import HeroImageBlock
 
 class BasicPage(Page):
     show_in_menus_default = True
 
     body = StreamField([
+        ('hero_image', HeroImageBlock()),
         ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock(
             features=['h2', 'h3', 'h4', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link'],

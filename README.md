@@ -32,6 +32,7 @@ Bristol Bike Polo's website
 - [ ] CSS
   - [ ] Basic layout styling
   - [ ] Streamblock styling
+  - [ ] Hero block
 - [ ] JS
   - [ ] Set up Sentry
 - [ ] Tooling
