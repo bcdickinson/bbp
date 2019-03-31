@@ -5,3 +5,6 @@ from wagtail.images.blocks import ImageChooserBlock
 class HeroImageBlock(StructBlock):
     image = ImageChooserBlock()
     tagline = CharBlock()
+
+    class Meta:
+        icon = 'image'

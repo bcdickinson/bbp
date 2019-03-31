@@ -7,11 +7,14 @@
 .header {
   grid-column: 1 / -1;
   grid-row: 1;
+  position: fixed;
+  width: 100%;
 }
 
 .main {
   grid-column: 3 / -3;
   grid-row: 2;
+  margin-top: 3rem;
 }
 
 .footer {

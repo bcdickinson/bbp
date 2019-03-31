@@ -7,6 +7,7 @@ from wagtail.images.blocks import ImageChooserBlock
 
 from .blocks import HeroImageBlock
 
+
 class BasicPage(Page):
     show_in_menus_default = True
 

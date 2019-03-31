@@ -1,63 +1,13 @@
+// Vendored stuff
 @import './vendor/normalize';
 
+// Common
 @import 'variables';
-
 @import 'typography';
 @import 'layout';
 @import 'utilities';
+@import 'base';
 
-
-body {
-  background-color: $bg-color;
-}
-
-.block-image {
-  & > img {
-    height: unset;
-    width: 100%;
-  }
-}
-
-.main-menu {
-  align-items: center;
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-.menu-item {
-  padding: .5em;
-
-  &:first-child {
-    flex-grow: 1;
-  }
-}
-
-.menu-item-link {
-  color: darken($text-color, 30);
-  text-decoration: none;
-
-  &.active {
-    color: $text-color;
-  }
-}
-
-.logo-home-link {
-  align-items: center;
-  color: $text-color;
-  display: flex;
-
-  svg {
-    $height: 64px;
-    fill: $text-color;
-    height: $height;
-    width: $height;
-  }
-
-  .logo-strapline {
-    font-size: 200%;
-    padding-left: 1rem;
-  }
-}
+// Components
+@import './components/header';
+@import './components/rich-text';

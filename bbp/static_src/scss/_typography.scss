@@ -1,59 +1,61 @@
 html {
-  color: $text-color;
+  color: $color;
   font-family: menco, sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 300;
 }
 
+.rich-text {
 
-// Headings
+  // Headings
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1rem 0;
+  }
 
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 1rem 0;
-}
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1em 0 1rem;
+  }
 
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 1em 0 1rem;
-}
+  h3 {
+    font-size: 1.67rem;
+    font-weight: 700;
+    margin: 1em 0 1rem;
+  }
 
-h3 {
-  font-size: 1.67rem;
-  font-weight: 700;
-  margin: 1em 0 1rem;
-}
+  h4 {
+    font-size: 1.33rem;
+    font-weight: 700;
+    margin: 1em 0 1rem;
+  }
 
-h4 {
-  font-size: 1.33rem;
-  font-weight: 700;
-  margin: 1em 0 1rem;
-}
+  h5 {
+    font-size: 1.22rem;
+    font-weight: 700;
+    margin: 1em 0 1rem;
+  }
 
-h5 {
-  font-size: 1.22rem;
-  font-weight: 700;
-  margin: 1em 0 1rem;
-}
-
-h6 {
-  font-size: 1.11rem;
-  font-weight: 700;
-  margin: 1em 0 1rem;
-}
-
-
-// Blocks
-
-p {
-  margin: 1em 0;
-}
+  h6 {
+    font-size: 1.11rem;
+    font-weight: 700;
+    margin: 1em 0 1rem;
+  }
 
 
-// Links
-a {
-  color: $link-color;
-  font-weight: 500;
-}
+  // Blocks
+  p {
+    line-height: 1.4em;
+    margin: 1em 0;
+  }
+
+
+  // Links
+  a {
+    color: $link-color;
+    font-weight: 500;
+  }
+
+}  // .rich--text
