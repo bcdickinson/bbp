@@ -1,0 +1,16 @@
+.footer {
+  background-color: $footer-background-color;
+  color: $footer-color;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.footer-content {
+  grid-column: 3 / -3;
+}

@@ -6,3 +6,7 @@ $link-color: #19c;
 // Header colours
 $header-background-color: rgba(0, 0, 0, .75);
 $header-color: $background-color;
+
+// Footer colours
+$footer-background-color: $header-background-color;
+$footer-color: $header-color;
