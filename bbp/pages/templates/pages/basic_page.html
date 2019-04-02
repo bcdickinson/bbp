@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block main %}
-    <h1>{{ page.title }}</h1>
+    {% if page.hero_image %}
+        <div class="hero-image-container">
+            {% image page.hero_image fill-3840x2160 as hero_image %}
+            <img class="hero-image" src="{{ hero_image.url }}">
+            {% if page.strapline %}
+                <div class="strapline-container">
+                    <span class="strapline">{{ page.strapline }}</span>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
     {% include_block page.body %}
 {% endblock main %}

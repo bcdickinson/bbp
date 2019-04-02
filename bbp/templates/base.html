@@ -5,6 +5,9 @@
 <html lang="en-GB">
     <head>
         <meta charset="utf-8" />
+        <meta name="robots" content="noindex">  {# TODO: remove this #}
+        <meta name="description" content="{{ self.search_description }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <title>
             {% block title %}
@@ -17,13 +20,8 @@
             {% endblock %}
         </title>
 
-        <meta name="robots" content="noindex">
-        <meta name="description" content="" /> {# TODO description contents #}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
         {% render_bundle 'main' 'css' %}
         <link rel="stylesheet" href="https://use.typekit.net/tsq3ljd.css">
-
         {% block extra_css %}{% endblock %}
     </head>
 
@@ -51,12 +49,12 @@
             </div>
         {% endblock content %}
 
+        {% render_bundle 'main' 'js' %}
         {% if SENTRY_DSN %}
             <script>
                 var SENTRY_DSN = "{{ SENTRY_DSN|escapejs }}";
             </script>
         {% endif %}
-        {% render_bundle 'main' 'js' %}
         {% block extra_js %}{% endblock %}
 
     </body>

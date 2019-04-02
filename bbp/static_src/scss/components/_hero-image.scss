@@ -1,0 +1,29 @@
+.hero-image-container {
+  margin-top: -$header-height;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.hero-image {
+  max-width: 100%;
+}
+
+.strapline-container {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: $header-height;
+}
+
+.strapline {
+  color: $header-color;
+  font-size: 3rem;
+  font-weight: 900;
+  text-shadow: 0 0 .5em $black, 0 0 .5em $black, 0 0 .5em $black, 0 0 .5em $black;
+}

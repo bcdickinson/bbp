@@ -4,11 +4,14 @@
 // Common
 @import 'variables';
 @import 'typography';
-@import 'layout';
 @import 'utilities';
 @import 'base';
 
+// Layout
+@import './layout/main';
+@import './layout/header';
+@import './layout/footer';
+
 // Components
-@import './components/header';
-@import './components/footer';
+@import './components/hero-image';
 @import './components/rich-text';
