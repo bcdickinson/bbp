@@ -2,10 +2,10 @@
   "name": "bbp",
   "private": true,
   "scripts": {
-    "build": "npx webpack --config webpack.prod.js",
-    "start": "npx run-p -l serve:*",
     "serve:webpack": "npx webpack-dev-server --config webpack.dev.js",
-    "serve:django": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000"
+    "serve:django": "docker-compose run --rm --service-ports -v $(pwd):/app -e DJANGO_SETTINGS_MODULE=bbp.settings.dev web ./manage.py runserver --nostatic 0.0.0.0:8000",
+    "build": "npx webpack --config webpack.prod.js",
+    "start": "npx run-p -l serve:*"
   },
   "repository": {
     "type": "git",
