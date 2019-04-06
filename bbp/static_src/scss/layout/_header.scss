@@ -1,19 +1,18 @@
 .header {
   background-color: $header-background-color;
   color: $header-color;
+  max-height: $header-height;
+  min-height: $header-height;
 }
 
 .header-nav-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-column: 3 / -3;
   margin: 0;
   padding: 0;
   width: 100%;
 }
 
 .header-nav {
-  grid-column: 3 / -3;
-
   ul {
     align-items: center;
     display: flex;
@@ -27,7 +26,7 @@
 
     &:first-child {
       flex-grow: 1;
-      font-size: 1.33rem;
+      font-size: 1.5rem;
       padding-left: 0;
     }
 
@@ -48,13 +47,5 @@
     &.active {
       text-decoration: underline;
     }
-  }
-}
-
-.menu-item-link {
-  color: darken($color, 30);
-
-  &.active {
-    color: $color;
   }
 }

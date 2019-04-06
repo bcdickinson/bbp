@@ -4,17 +4,26 @@
   min-height: 100vh;
 }
 
+%grid {
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(12, 1fr);
+}
+
 .header {
+  @extend %grid;
   grid-row: 1;
   position: fixed;
   width: 100%;
 }
 
 .main {
+  @extend %grid;
   grid-row: 2;
   margin-top: $header-height;
 }
 
 .footer {
+  @extend %grid;
   grid-row: 3;
 }

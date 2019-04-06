@@ -1,13 +1,16 @@
 .hero-image-container {
-  margin-top: -$header-height;
-  max-height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
+  grid-column: 1 / -1;
+  max-height: 90vh;
   overflow: hidden;
   position: relative;
   z-index: -1;
 }
 
 .hero-image {
-  max-width: 100%;
+  flex: 0;
+  width: 100%;
 }
 
 .strapline-container {
@@ -18,12 +21,14 @@
   left: 0;
   position: absolute;
   right: 0;
-  top: $header-height;
+  top: 0;
 }
 
 .strapline {
   color: $header-color;
   font-size: 3rem;
   font-weight: 900;
+  margin: 0 20%;
+  text-align: center;
   text-shadow: 0 0 .5em $black, 0 0 .5em $black, 0 0 .5em $black, 0 0 .5em $black;
 }
