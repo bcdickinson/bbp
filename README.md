@@ -10,6 +10,7 @@ Bristol Bike Polo's website
 - [x] Heroku-ify image (`$PORT` etc.)
 - [ ] Deployments from CircleCI
 - [ ] Release phase stuff (migrations)
+  - https://devcenter.heroku.com/articles/build-docker-images-heroku-yml#release-configuring-release-phase
 - [x] S3 for media files
   - [ ] Some means of pulling them down for dev
 - [ ] Downstream caching (requires a domain)... Cloudflare?
