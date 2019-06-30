@@ -51,10 +51,10 @@ Bristol Bike Polo's website
 
 ## Common development tasks
 
-### Running the web service container with local files
+### Running the in development mode
 
 ```sh
- docker-compose run -d --service-ports -v $(pwd):/app web
+npm start
 ```
 
 ### Regenerating lockfiles for a new image
@@ -65,23 +65,6 @@ The following commands can be used to update just the lock files without install
 npm install --package-lock-only
 pipenv lock
 ```
-### Local interactive debugging with modified code
-
-The app image needs to have the dev dependencies installed (includes `pudb`):
-
-```sh
-docker-compose build --build-arg PIPENV_INSTALL_FLAGS=--dev web
-```
-Now you can add some debug code, `set_trace()` calls, etc. to your local code.
-Then you can run the server with the modified code (no need to rebuild the image):
-
-```sh
-docker-compose run --rm -e PYTHONDONTWRITEBYTECODE=1 -v $(pwd):/app web
-```
-
-_NB - There's a probably a way to do this with `pudb` installed on the host and shared to the container
-via a volume, but rebuilding the image is fine for now._
-
 ### Load DB backup
 
 The database needs to be running for the following commands (`docker-compose start postgres`).

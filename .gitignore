@@ -4,3 +4,4 @@
 /node_modules/
 *.sw[op]
 webpack-stats.json
+.python-version

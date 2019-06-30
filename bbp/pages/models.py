@@ -21,7 +21,6 @@ class BasicPage(Page):
     strapline = models.CharField(blank=True, max_length=64)
 
     body = StreamField([
-        ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock(
             features=['h2', 'h3', 'h4', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link'],
         )),

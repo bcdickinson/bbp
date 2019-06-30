@@ -1,7 +1,7 @@
 ##################
 # Frontend build #
 ##################
-FROM node:lts AS frontend-build
+FROM node:12 AS frontend-build
 
 WORKDIR /build
 COPY package*.json webpack.*.js postcss.config.js ./
@@ -15,34 +15,33 @@ RUN npm ci && \
 FROM python:3.7-stretch
 
 EXPOSE 8000
-RUN useradd -m bbp
-
-# Build args
-ARG PIPENV_INSTALL_FLAGS
+RUN useradd -m bbp && \
+    curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 
 # Environment
 ENV DJANGO_SETTINGS_MODULE bbp.settings.heroku
+ENV POETRY /root/.poetry/bin/poetry
 ENV PORT 8000
-ENV PIPENV_INSTALL_FLAGS ${PIPENV_INSTALL_FLAGS:-""}
 ENV PYTHONUNBUFFERED true
-ENV WEB_CONCURRENCY 3
+ENV WEB_CONCURRENCY 4
 
 # Python dependencies
 WORKDIR /app
-RUN pip install pipenv
-COPY Pipfile* ./
-RUN pipenv install --system --deploy ${PIPENV_INSTALL_FLAGS}
+COPY pyproject.toml poetry.lock ./
+RUN $POETRY config settings.virtualenvs.create false && \
+    $POETRY install --no-dev --no-interaction --no-ansi
 
 # App and static files
 COPY --chown=bbp . .
 COPY --chown=bbp --from=frontend-build /build/webpack-stats.json .
 COPY --chown=bbp --from=frontend-build /build/bbp/static_build/ bbp/static_build/
-RUN SECRET_KEY=null ./manage.py collectstatic --no-input
+RUN SECRET_KEY=None ./manage.py collectstatic --no-input
 
 USER bbp
 
 CMD gunicorn \
-        --access-logfile - \
-        --bind :${PORT} \
-        --worker-class gevent \
-        bbp.wsgi:application
+    --bind :${PORT} \
+    --access-logfile - \
+    --error-logfile - \
+    --worker-class gevent \
+    bbp.wsgi:application

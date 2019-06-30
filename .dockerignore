@@ -9,3 +9,4 @@
 /node_modules/
 /setup.cfg
 /staticfiles/
+.python-version

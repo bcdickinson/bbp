@@ -7,12 +7,13 @@ module.exports = merge(common, {
   mode: 'development',
   devServer: {
     hot: true,
+    host: '0.0.0.0',
     port: 3000,
     publicPath: 'http://localhost:3000/static/',
     index: '',
     proxy: {
       '/': {
-        target: 'http://localhost/'
+        target: 'http://web:8000/'
       }
     }
   },
