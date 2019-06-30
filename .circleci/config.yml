@@ -14,10 +14,19 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "poetry.lock" }}
+
       - run:
-          name: Install dev dependencies (includes linters)
+          name: Install dependencies
           command: |
-            poetry install --no-ansi --no-interaction --quiet
+            poetry install -n
+
+      - save_cache:
+          key: deps-{{ checksum "poetry.lock" }}
+          paths:
+            - /home/circleci/.cache/pypoetry/virtualenvs
 
       - run:
           name: black
