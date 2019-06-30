@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class PagesConfig(AppConfig):
-    name = 'bbp.pages'
+    name = "bbp.pages"

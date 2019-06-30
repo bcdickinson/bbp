@@ -12,21 +12,54 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('wagtailcore', '0040_page_draft_title'),
-    ]
+    dependencies = [("wagtailcore", "0040_page_draft_title")]
 
     operations = [
         migrations.CreateModel(
-            name='BasicPage',
+            name="BasicPage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
-                ('introduction', models.TextField()),
-                ('body', wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(classname='full title')), ('paragraph', wagtail.core.blocks.RichTextBlock(features=['h3', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link'])), ('image', wagtail.images.blocks.ImageChooserBlock()), ('embed', wagtail.embeds.blocks.EmbedBlock())])),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.Page",
+                    ),
+                ),
+                ("introduction", models.TextField()),
+                (
+                    "body",
+                    wagtail.core.fields.StreamField(
+                        [
+                            (
+                                "heading",
+                                wagtail.core.blocks.CharBlock(classname="full title"),
+                            ),
+                            (
+                                "paragraph",
+                                wagtail.core.blocks.RichTextBlock(
+                                    features=[
+                                        "h3",
+                                        "bold",
+                                        "italic",
+                                        "ol",
+                                        "ul",
+                                        "hr",
+                                        "link",
+                                        "document-link",
+                                    ]
+                                ),
+                            ),
+                            ("image", wagtail.images.blocks.ImageChooserBlock()),
+                            ("embed", wagtail.embeds.blocks.EmbedBlock()),
+                        ]
+                    ),
+                ),
             ],
-            options={
-                'abstract': False,
-            },
-            bases=('wagtailcore.page',),
-        ),
+            options={"abstract": False},
+            bases=("wagtailcore.page",),
+        )
     ]

@@ -11,24 +11,52 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0001_squashed_0021'),
-        ('pages', '0003_auto_20190309_1843'),
+        ("wagtailimages", "0001_squashed_0021"),
+        ("pages", "0003_auto_20190309_1843"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='basicpage',
-            name='hero_image',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='wagtailimages.Image'),
+            model_name="basicpage",
+            name="hero_image",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="wagtailimages.Image",
+            ),
         ),
         migrations.AddField(
-            model_name='basicpage',
-            name='strapline',
+            model_name="basicpage",
+            name="strapline",
             field=models.CharField(blank=True, max_length=64),
         ),
         migrations.AlterField(
-            model_name='basicpage',
-            name='body',
-            field=wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(classname='full title')), ('paragraph', wagtail.core.blocks.RichTextBlock(features=['h2', 'h3', 'h4', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link'])), ('image', wagtail.images.blocks.ImageChooserBlock()), ('embed', wagtail.embeds.blocks.EmbedBlock())]),
+            model_name="basicpage",
+            name="body",
+            field=wagtail.core.fields.StreamField(
+                [
+                    ("heading", wagtail.core.blocks.CharBlock(classname="full title")),
+                    (
+                        "paragraph",
+                        wagtail.core.blocks.RichTextBlock(
+                            features=[
+                                "h2",
+                                "h3",
+                                "h4",
+                                "bold",
+                                "italic",
+                                "ol",
+                                "ul",
+                                "hr",
+                                "link",
+                                "document-link",
+                            ]
+                        ),
+                    ),
+                    ("image", wagtail.images.blocks.ImageChooserBlock()),
+                    ("embed", wagtail.embeds.blocks.EmbedBlock()),
+                ]
+            ),
         ),
     ]
