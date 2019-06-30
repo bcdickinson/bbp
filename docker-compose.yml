@@ -13,24 +13,8 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
       - REDIS_URL=redis://redis:6379
       - SECRET_KEY=notverysecret
-    expose:
-      - 8000
-    volumes:
-      - type: bind
-        source: .
-        target: /app
-
-  frontend:
-    command: "npm run start"
-    image: "node:12"
     ports:
-      - "3000:3000"
-    user: node
-    volumes:
-      - type: bind
-        source: .
-        target: /home/node/app
-    working_dir: /home/node/app
+      - "8000:8000"
 
   postgres:
     image: "postgres:alpine"

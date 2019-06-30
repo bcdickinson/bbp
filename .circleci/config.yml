@@ -44,14 +44,14 @@ jobs:
 
       - run:
           name: Build image
-          command: docker-compose build
+          command: docker-compose -f docker-compose.yml build
 
       - run:
           name: Check for missing migrations
           command: |
-            docker-compose run --rm web ./manage.py makemigrations --check
+            docker-compose -f docker-compose.yml run --rm web ./manage.py makemigrations --check
 
       - run:
           name: Run tests
           command: |
-             docker-compose run --rm web ./manage.py test
+             docker-compose -f docker-compose.yml run --rm web ./manage.py test
