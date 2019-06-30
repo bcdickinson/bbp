@@ -75,6 +75,18 @@ pytz = ">=2015.2"
 
 [[package]]
 category = "main"
+description = "Full featured redis cache backend for Django."
+name = "django-redis"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "4.10.0"
+
+[package.dependencies]
+Django = ">=1.11"
+redis = ">=2.10.0"
+
+[[package]]
+category = "main"
 description = "Support for many storage backends in Django"
 name = "django-storages"
 optional = false
@@ -226,6 +238,14 @@ version = "2019.1"
 
 [[package]]
 category = "main"
+description = "Python client for Redis key-value store"
+name = "redis"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "3.2.1"
+
+[[package]]
+category = "main"
 description = "Python HTTP for Humans."
 name = "requests"
 optional = false
@@ -354,7 +374,7 @@ python-versions = "*"
 version = "1.1"
 
 [metadata]
-content-hash = "2391685d22f921de9eeb1ab0a48c2b927103773fc1e46f8b0654641797932ec9"
+content-hash = "18af56b1eabbe7dd0db879984cc154e4fa48a74cb301aa00865de2f4c50f33a4"
 python-versions = "~3.7"
 
 [metadata.hashes]
@@ -366,6 +386,7 @@ dj-database-url = ["4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb33
 django = ["753d30d3eb078064d2ddadfea65083c9848074a7f93d7b4dc7fa6b1380d278f5", "7cb67e8b934fab23b6daed7144da52e8a25a47eba7f360ca43d2b448506b01ad"]
 django-cogwheels = ["53942daafeac4db35dd2a9772597701f94ac29944026d51c1b03687e2b42be66", "dab05326be02250f3ccbaabfcac4e65333f9f437b250099aaf81e6aed09e9a4c"]
 django-modelcluster = ["59672386191d38c69d6f994c3f9aaab3ff93910ec71e78a0bb6aa9abd4d1b90a", "eea507f2dd8bd283600c1cfa4de6776501a28f199089bb00613c1621505e80cc"]
+django-redis = ["af0b393864e91228dd30d8c85b5c44d670b5524cb161b7f9e41acc98b6e5ace7", "f46115577063d00a890867c6964ba096057f07cb756e78e0503b89cd18e4e083"]
 django-storages = ["8e35d2c7baeda5dc6f0b4f9a0fc142d25f9a1bf72b8cebfcbc5db4863abc552d", "b1a63cd5ea286ee5a9fb45de6c3c5c0ae132d58308d06f1ce9865cfcd5e470a7"]
 django-taggit = ["710b4d15ec1996550cc68a0abbc41903ca7d832540e52b1336e6858737e410d8", "bb8f27684814cd1414b2af75b857b5e26a40912631904038a7ecacd2bfafc3ac"]
 django-treebeard = ["c21db06a8d4943bf2a28d9d7a119058698fb76116df2679ecbf15a46a501de42"]
@@ -382,6 +403,7 @@ psutil = ["028a1ec3c6197eadd11e7b46e8cc2f0720dc18ac6d7aabdb8e8c0d6c9704f000", "5
 psycopg2 = ["128d0fa910ada0157bba1cb74a9c5f92bb8a1dca77cf91a31eb274d1f889e001", "227fd46cf9b7255f07687e5bde454d7d67ae39ca77e170097cdef8ebfc30c323", "2315e7f104681d498ccf6fd70b0dba5bce65d60ac92171492bfe228e21dcc242", "4b5417dcd2999db0f5a891d54717cfaee33acc64f4772c4bc574d4ff95ed9d80", "640113ddc943522aaf71294e3f2d24013b0edd659b7820621492c9ebd3a2fb0b", "897a6e838319b4bf648a574afb6cabcb17d0488f8c7195100d48d872419f4457", "8dceca81409898c870e011c71179454962dec152a1a6b86a347f4be74b16d864", "b1b8e41da09a0c3ef0b3d4bb72da0dde2abebe583c1e8462973233fd5ad0235f", "cb407fccc12fc29dc331f2b934913405fa49b9b75af4f3a72d0f50f57ad2ca23", "d3a27550a8185e53b244ad7e79e307594b92fede8617d80200a8cce1fba2c60f", "f0e6b697a975d9d3ccd04135316c947dd82d841067c7800ccf622a8717e98df1"]
 pycparser = ["a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"]
 pytz = ["303879e36b721603cc54604edcac9d20401bdbe31e1e4fdee5b9f98d5d31dfda", "d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"]
+redis = ["6946b5dca72e86103edc8033019cc3814c031232d339d5f4533b02ea85685175", "8ca418d2ddca1b1a850afa1680a7d2fd1f3322739271de4b704e0d4668449273"]
 requests = ["11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4", "9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31"]
 scout-apm = ["12c8fdeb9139c9cc8da3c9b39d682d510550e1f03fe79ea0da88b40ab428619e", "146c7ced12a9905cfd82feb58b4a5c3b0f5ddbd1270065069cb0af0c7337291e", "1f87d439e24dc40eb0ed489e9a31bcac8baee8cc6e2cf1892fce64ebfb54256b", "2ead5608a9061b7efb93f4c72ef9e4a6bb92a22a516f3c97a6bc92c6b2bffc80", "34f3e6b202cbbff32b92894d12b327b368a81a4e6e0b2c20cfba648e16c264d4", "86a5c31cb4eb97a41cd287837cccbc53adf9b99b97219a333bd40282522ce5b5", "a5fd678ded0b410b0510c7e2b5ff642d85bdd8097a11ac5f97d2ce4cf57fb3ec", "c4e2eacefd99e15803deff48380556f3fafc3ddd7f66477e8d012364d9358537", "cf738c62eab78cfaf9f63481c322eb598d15d160f0722f03669c912442096c70", "e30ff05bd52830262eccc215401b812243662363fae1c30df9a0ded9da175241"]
 sentry-sdk = ["692aa93637273365166041ee8e06ccd6b61d5f06560765d78828edbaac83fae1", "7c9db0e419fb0fb31c1b1d2ec9247667d2b77bd4f3136119ee6f1464e9b088a4"]

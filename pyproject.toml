@@ -16,6 +16,7 @@ wagtailmenus = "^2.13"
 whitenoise = "^4.1"
 gunicorn = {version = "^19.9",extras = ["gevent"]}
 psycopg2 = "^2.8"
+django-redis = "^4.10"
 
 [tool.poetry.dev-dependencies]
 
