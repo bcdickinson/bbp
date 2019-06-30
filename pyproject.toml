@@ -19,7 +19,7 @@ wagtailmenus = "^2.13"
 whitenoise = "^4.1"
 
 [tool.poetry.dev-dependencies]
-black = {version = "^18.3-alpha.0",allows-prereleases = true}
+black = {version = "^19.3b0",allows-prereleases = true}
 flake8 = "^3.7"
 isort = "^4.3"
 
@@ -32,7 +32,6 @@ line-length = 88
 target_version = ['py37']
 include = '\.pyi?$'
 exclude = '''
-
 (
   /(
     | \.git
@@ -42,15 +41,11 @@ exclude = '''
 )
 '''
 
-[tool.flake8]
-exclude = "*/migrations/*"
-ignore = "W504"
-max_line_length = "120"
-
 [tool.isort]
 include_trailing_comma = "1"
 known_django = "django,rest_framework"
 known_wagtail = "wagtail"
+line_length = "88"
 multi_line_output = "3"
 sections = "FUTURE,STDLIB,DJANGO,WAGTAIL,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
 skip_glob = "*/migrations/*,*/node_modules/*"
