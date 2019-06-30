@@ -47,6 +47,11 @@ jobs:
           command: docker-compose -f docker-compose.yml build
 
       - run:
+          name: Django system checks
+          command: |
+            docker-compose -f docker-compose.yml run --rm web ./manage.py check --deploy
+
+      - run:
           name: Check for missing migrations
           command: |
             docker-compose -f docker-compose.yml run --rm web ./manage.py makemigrations --check
