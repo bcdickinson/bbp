@@ -1,0 +1,4 @@
+[flake8]
+exclude=*/migrations/*
+ignore=W504
+max_line_length=120

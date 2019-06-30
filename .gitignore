@@ -1,7 +1,9 @@
+*.sw[op]
+.nvmrc
+.python-version
 /.cache/
+/bbp.egg-info/
 /bbp/static_build/
 /media/
 /node_modules/
-*.sw[op]
 webpack-stats.json
-.python-version

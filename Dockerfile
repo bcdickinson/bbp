@@ -29,7 +29,7 @@ ENV WEB_CONCURRENCY 4
 WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 RUN $POETRY config settings.virtualenvs.create false && \
-    $POETRY install --no-dev --no-interaction --no-ansi
+    $POETRY install --no-dev --no-interaction --no-ansi --quiet
 
 # App and static files
 COPY --chown=bbp . .

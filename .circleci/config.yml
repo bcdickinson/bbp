@@ -7,7 +7,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3-stretch
+      - image: circleci/python:3.7-stretch
 
     working_directory: ~/repo
 
@@ -17,15 +17,19 @@ jobs:
       - run:
           name: Install dev dependencies (includes linters)
           command: |
-            pipenv install --dev --ignore-pipfile
+            poetry install --no-ansi --no-interaction --quiet
+
+      - run:
+          name: black
+          command: poetry run black
 
       - run:
           name: flake8
-          command: pipenv run flake8
+          command: poetry run flake8
 
       - run:
           name: isort
-          command: pipenv run isort --check-only
+          command: poetry run isort --check-only
 
       - setup_remote_docker
 
