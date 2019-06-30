@@ -5,7 +5,6 @@ services:
     build:
       context: .
     depends_on:
-      - frontend
       - postgres
       - redis
     environment:
