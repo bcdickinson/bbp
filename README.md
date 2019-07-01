@@ -7,10 +7,10 @@ Bristol Bike Polo's website
 ## To-do lists
 
 ### Infrastructure
-- [x] Heroku-ify image (`$PORT` etc.)
+- [ ] heroku.yml for deployments
+  - [ ] Release phase stuff (migrations)
+    - https://devcenter.heroku.com/articles/build-docker-images-heroku-yml#release-configuring-release-phase
 - [ ] Deployments from CircleCI
-- [ ] Release phase stuff (migrations)
-  - https://devcenter.heroku.com/articles/build-docker-images-heroku-yml#release-configuring-release-phase
 - [x] S3 for media files
   - [ ] Some means of pulling them down for dev
 - [ ] Downstream caching (requires a domain)... Cloudflare?
@@ -33,37 +33,34 @@ Bristol Bike Polo's website
 - [ ] CSS
   - [ ] Basic layout styling
   - [ ] Streamblock styling
-  - [ ] Hero block
+  - [x] Hero block
 - [ ] JS
+  - [ ] Mobile menu
   - [ ] Set up Sentry
 - [ ] Tooling
   - [ ] Webpack for all static assets
     - [x] Prod and dev configs
-    - [ ] Update package.json and Dockerfile to use npm scripts for FE build
+    - [x] JS files
+    - [x] Sass files
+    - [x] Autoprefixer for IE11 grid
     - [ ] Image files
     - [ ] SVG files
-    - [x] JS files
-    - [ ] Sass files
-    - [ ] Autoprefixer for IE11 grid
 
-### Far-future craziness
-- [ ] PWA for tournament stuff
 
 ## Common development tasks
 
 ### Running the in development mode
 
 ```sh
-npm start
+docker-compose up
 ```
-
 ### Regenerating lockfiles for a new image
 
 The following commands can be used to update just the lock files without installing anything.
 
 ```sh
 npm install --package-lock-only
-pipenv lock
+poetry update
 ```
 ### Load DB backup
 
@@ -72,11 +69,4 @@ The database needs to be running for the following commands (`docker-compose sta
 ```sh
 docker-compose exec postgres psql -Ubbp -c "DROP SCHEMA public CASCADE;"
 docker-compose exec -T postgres pg_restore -O -Ubbp -dbbp < $BACKUP_FILE
-```
-### Fix "permission denied" errors when uploading media
-
-Annoyingly, you can't specify the user and group of a volume when it's created (it will always be `root:root`),
-so you have to manually `chown` the mount once the container has been created:
-```sh
-docker-compose run --rm --user root web chown bbp:bbp media/
 ```
