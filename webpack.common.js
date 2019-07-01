@@ -13,7 +13,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
-        ' **/*',
+        '**/*',
         path.resolve(__dirname, 'webpack-stats.json')
       ]
     })
