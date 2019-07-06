@@ -8,12 +8,11 @@ services:
       - postgres
       - redis
     environment:
-      - DATABASE_URL=postgres://bbp:bbp@postgres:5432/bbp
-      - DJANGO_SETTINGS_MODULE=bbp.settings.dev
-      - MEDIA_ROOT=/var/media
-      - PYTHONDONTWRITEBYTECODE=1
-      - REDIS_URL=redis://redis:6379
-      - SECRET_KEY=notverysecret
+      DATABASE_URL: postgres://bbp:bbp@postgres:5432/bbp
+      MEDIA_ROOT: /var/media
+      PYTHONDONTWRITEBYTECODE: 1
+      REDIS_URL: redis://redis:6379
+      SECRET_KEY: notverysecret
     ports:
       - "8000:8000"
     volumes:

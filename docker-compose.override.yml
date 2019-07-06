@@ -2,6 +2,9 @@ version: '3.2'
 
 services:
   web:
+    command: ./manage.py runserver 0:8000
+    environment:
+      DJANGO_SETTINGS_MODULE: bbp.settings.dev
     volumes:
       - type: bind
         source: .
