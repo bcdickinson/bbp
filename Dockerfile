@@ -21,7 +21,7 @@ RUN useradd -m bbp && \
     curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 
 # Environment
-ENV DJANGO_SETTINGS_MODULE bbp.settings.heroku
+ENV DJANGO_SETTINGS_MODULE bbp.settings.prod
 ENV POETRY /root/.poetry/bin/poetry
 ENV PORT 8000
 ENV PYTHONUNBUFFERED true

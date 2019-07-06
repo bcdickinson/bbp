@@ -18,4 +18,3 @@ services:
         source: .
         target: /home/node/app
     working_dir: /home/node/app
-
