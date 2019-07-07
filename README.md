@@ -54,4 +54,3 @@ docker-compose exec -T postgres pg_restore -O -Ubbp -dbbp < $BACKUP_FILE
 - Open another terminal and run `docker attach --detach-keys="ctrl-q" bbp_web_1` to connect to the running process
 - Insert `breakpoint()` where you want the code to break
 - When the code breaks, the debugger will appear in the terminal :100:
-- 
