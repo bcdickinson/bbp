@@ -20,24 +20,28 @@ RUN useradd -m bbp && \
     chown bbp:bbp /var/media && \
     curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 
+# Build arguments
+ARG POETRY_ARGS
+
 # Environment
-ENV DJANGO_SETTINGS_MODULE bbp.settings.prod
-ENV POETRY /root/.poetry/bin/poetry
-ENV PORT 8000
-ENV PYTHONUNBUFFERED true
-ENV WEB_CONCURRENCY 4
+ENV DJANGO_SETTINGS_MODULE=bbp.settings.prod \
+    POETRY=/root/.poetry/bin/poetry \
+    POETRY_ARGS=${POETRY_ARGS:-""} \
+    PORT=8000 \
+    PYTHONUNBUFFERED=true \
+    WEB_CONCURRENCY=4
 
 # Python dependencies
 WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 RUN $POETRY config settings.virtualenvs.create false && \
-    $POETRY install --no-dev --no-interaction --no-ansi
+    $POETRY install --no-interaction --no-ansi $POETRY_ARGS
 
 # App and static files
 COPY --chown=bbp . .
 COPY --chown=bbp --from=frontend-build /build/webpack-stats.json .
 COPY --chown=bbp --from=frontend-build /build/bbp/static_build/ bbp/static_build/
-RUN SECRET_KEY=None ./manage.py collectstatic --no-input
+RUN SECRET_KEY=dummy ./manage.py collectstatic --no-input
 
 USER bbp
 
