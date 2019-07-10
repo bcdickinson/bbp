@@ -29,7 +29,6 @@ SECRET_KEY = env["SECRET_KEY"]
 if "ALLOWED_HOSTS" in env:
     ALLOWED_HOSTS = env["ALLOWED_HOSTS"].split(",")
 
-
 # Application definition
 
 INSTALLED_APPS = [

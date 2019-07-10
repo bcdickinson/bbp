@@ -9,11 +9,11 @@ module.exports = merge(common, {
     hot: true,
     host: '0.0.0.0',
     port: 3000,
-    publicPath: 'http://localhost:3000/static/',
+    publicPath: process.env.WDS_PUBLIC_PATH,
     index: '',
     proxy: {
       '/': {
-        target: 'http://web:8000/'
+        target: process.env.WDS_PROXY_TARGET
       }
     }
   },

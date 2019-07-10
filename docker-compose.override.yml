@@ -18,6 +18,9 @@ services:
 
   frontend:
     command: "npm run start"
+    environment:
+      WDS_PUBLIC_PATH: http://localhost:3000/static/
+      WDS_PROXY_TARGET: http://web:8000/
     image: "node:12"
     ports:
       - "3000:3000"
