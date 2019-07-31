@@ -21,7 +21,6 @@
         </title>
 
         {% render_bundle 'main' 'css' %}
-        <link rel="stylesheet" href="https://use.typekit.net/tsq3ljd.css">
         {% block extra_css %}{% endblock %}
     </head>
 
@@ -50,11 +49,6 @@
         {% endblock content %}
 
         {% render_bundle 'main' 'js' %}
-        {% if SENTRY_DSN %}
-            <script>
-                var SENTRY_DSN = "{{ SENTRY_DSN|escapejs }}";
-            </script>
-        {% endif %}
         {% block extra_js %}{% endblock %}
 
     </body>

@@ -7,7 +7,6 @@ module.exports = {
   "extends": "eslint:recommended",
   "globals": {
     "Atomics": "readonly",
-    "SENTRY_DSN": "readonly",
     "SharedArrayBuffer": "readonly"
   },
   "parserOptions": {
