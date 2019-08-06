@@ -11,44 +11,46 @@ help:
 		"  migrate:        run Django migrations\n" \
 		"  test:           run the tests"
 
+yaml_files = -f docker-compose.yml -f docker-compose.dev.yml
+
 .PHONY: up
 up:
-	docker-compose up --build
+	docker-compose $(yaml_files) up --build
 
 .PHONY: upd
 upd:
-	docker-compose up --build --detach
+	docker-compose $(yaml_files) up --build --detach
 
 .PHONY: stop
 stop:
-	docker-compose stop
+	docker-compose $(yaml_files) stop
 
 
 .PHONY: shell
 shell:
-	docker-compose run --rm web bash
+	docker-compose $(yaml_files) run --rm web bash
 
 .PHONY: fe_shell
 fe_shell:
-	docker-compose run --rm frontend bash
+	docker-compose $(yaml_files) run --rm frontend bash
 
 .PHONY: migrate
 migrate:
-	docker-compose run --rm web ./manage.py migrate
+	docker-compose $(yaml_files) run --rm web ./manage.py migrate
 
 .PHONY: makemigrations
-makemigrations:
-	docker-compose run --rm web ./manage.py makemigrations
+migrations:
+	docker-compose $(yaml_files) run --rm web ./manage.py makemigrations
 
 .PHONY: django_tests
 django_tests:
 	@echo "Django tests:"
-	docker-compose run --rm web ./manage.py test -v2
+	docker-compose $(yaml_files) run --rm web ./manage.py test -v2
 
 .PHONY: node_tests
 node_tests:
 	@echo "Node tests:"
-	docker-compose run --rm frontend npm run test
+	docker-compose $(yaml_files) run --rm frontend npm run test
 
 .PHONY: test
 test: django_tests node_tests

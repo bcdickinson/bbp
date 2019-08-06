@@ -21,6 +21,7 @@ services:
       - type: volume
         source: media
         target: /var/media
+        consistency: delegated
 
   postgres:
     image: "postgres:alpine"
@@ -35,6 +36,7 @@ services:
       - type: volume
         source: pgdata
         target: /var/lib/postgresql/data/pgdata
+        consistency: delegated
 
   redis:
     image: "redis:alpine"

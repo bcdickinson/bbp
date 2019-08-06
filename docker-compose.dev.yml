@@ -15,6 +15,7 @@ services:
       - type: bind
         source: .
         target: /app
+        consistency: delegated
 
   frontend:
     command: "npm run start"
@@ -29,4 +30,5 @@ services:
       - type: bind
         source: .
         target: /home/node/app
+        consistency: delegated
     working_dir: /home/node/app
