@@ -44,19 +44,19 @@ jobs:
 
       - run:
           name: Build image
-          command: docker-compose -f docker-compose.yml build
+          command: docker-compose build
 
       - run:
           name: Django system checks
           command: |
-            docker-compose -f docker-compose.yml run --rm web ./manage.py check --deploy
+            docker-compose run --rm web ./manage.py check --deploy
 
       - run:
           name: Check for missing migrations
           command: |
-            docker-compose -f docker-compose.yml run --rm web ./manage.py makemigrations --check
+            docker-compose run --rm web ./manage.py makemigrations --check
 
       - run:
           name: Run tests
           command: |
-             docker-compose -f docker-compose.yml run --rm web ./manage.py test
+             docker-compose run --rm web ./manage.py test
