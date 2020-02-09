@@ -1,24 +1,24 @@
 repos:
   - repo: https://github.com/ambv/black
-    rev: stable
+    rev: 19.10b0
     hooks:
     - id: black
       language_version: python3.7
 
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.7.7
+    rev: 3.7.9
     hooks:
     - id: flake8
       language_version: python3.7
 
   - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v4.3.4
+    rev: v4.3.21
     hooks:
     - id: isort
       language_version: python3.7
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.1.0
+    rev: v2.5.0
     hooks:
     - id: check-json
     - id: check-merge-conflict
@@ -28,11 +28,11 @@ repos:
     - id: trailing-whitespace
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: master
+    rev: v7.0.0-alpha.0
     hooks:
     - id: eslint
 
   - repo: git://github.com/elidupuis/mirrors-sass-lint
-    sha: master
+    rev: 5cc45653263b423398e4af2561fae362903dd45d
     hooks:
     - id: sass-lint
