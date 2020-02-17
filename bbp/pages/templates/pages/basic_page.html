@@ -1,21 +1,8 @@
 {% extends 'base.html' %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
 
 {% block main %}
     <h1 class="sr-only">{{ page.title }}</h1>
-
-    {% if page.hero_image %}
-        <div class="hero-image-container">
-            {% image page.hero_image fill-3840x2160 as hero_image %}
-            <img class="hero-image" src="{{ hero_image.url }}">
-            {% if page.strapline %}
-                <div class="strapline-container">
-                    <p class="strapline">{{ page.strapline }}</p>
-                </div>
-            {% endif %}
-        </div>
-    {% endif %}
-
     <div class="streamfield-body">
         {% include_block page.body %}
     </div>

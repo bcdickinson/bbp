@@ -1,12 +1,10 @@
-<nav class="header-nav">
-    <ul>
+<ul>
+    <li>
+        <a class="header-link" href="/" title="Bristol Bike Polo">Bristol Bike Polo</a>
+    </li>
+    {% for menu_item in menu_items %}
         <li>
-            <a class="header-link" href="/" title="Bristol Bike Polo">Bristol Bike Polo</a>
+            <a class="header-link {{ menu_item.active_class }}" href="{{ menu_item.href }}">{{ menu_item.text }}</a>
         </li>
-        {% for menu_item in menu_items %}
-            <li>
-                <a class="header-link {{ menu_item.active_class }}" href="{{ menu_item.href }}">{{ menu_item.text }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</nav>
+    {% endfor %}
+</ul>

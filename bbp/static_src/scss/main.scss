@@ -1,17 +1,2 @@
-// Vendored stuff
-@import './vendor/normalize';
-
-// Common
-@import 'variables';
-@import 'typography';
-@import 'utilities';
-@import 'base';
-
-// Layout
-@import './layout/main';
-@import './layout/header';
-@import './layout/footer';
-
-// Components
-@import './components/hero-image';
-@import './components/streamfield';
+@import 'custom';
+@import '~bootstrap/scss/bootstrap';

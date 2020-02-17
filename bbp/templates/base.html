@@ -20,13 +20,10 @@
             {% endblock %}
         </title>
 
-        <link rel="stylesheet" href="https://use.typekit.net/tsq3ljd.css">
         {% render_bundle 'main' 'css' %}
-        {% block extra_css %}{% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-
         {% wagtailuserbar %}
 
         {% block content %}
@@ -50,7 +47,5 @@
         {% endblock content %}
 
         {% render_bundle 'main' 'js' %}
-        {% block extra_js %}{% endblock %}
-
     </body>
 </html>

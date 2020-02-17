@@ -160,7 +160,11 @@ if "REDIS_URL" in env:
 
 
 # Webpack Loader
-WEBPACK_LOADER = {"DEFAULT": {"BUNDLE_DIR_NAME": ""}}
+
+WEBPACK_LOADER = {
+    "DEFAULT": {"STATS_FILE": os.path.join(BASE_DIR, "webpack-stats.json"),}
+}
+
 
 # Wagtail settings
 
@@ -204,3 +208,26 @@ if (
 
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+
+
+# Logging
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "generic": {
+            "format": "%(asctime)s [%(name)s] [%(levelname)s] %(message)s",
+            "datefmt": "[%Y-%m-%d %H:%M:%S %z]",
+        }
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "generic",
+        },
+    },
+    "loggers": {
+        "django": {"handlers": ["console"], "level": "INFO", "propagate": False,},
+    },
+}

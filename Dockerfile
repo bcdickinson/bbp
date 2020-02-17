@@ -14,6 +14,8 @@ RUN npm ci && \
 ##############
 FROM python:3.7-stretch
 
+ARG POETRY_VERSION=1.0.3
+
 EXPOSE 8000
 RUN useradd -m bbp && \
     mkdir /var/media && \
@@ -34,8 +36,8 @@ ENV DJANGO_SETTINGS_MODULE=bbp.settings.prod \
 # Python dependencies
 WORKDIR /app
 COPY pyproject.toml poetry.lock ./
-RUN $POETRY config settings.virtualenvs.create false && \
-    $POETRY install --no-interaction --no-ansi $POETRY_ARGS
+RUN $POETRY config virtualenvs.create false && \
+    $POETRY install $POETRY_ARGS
 
 # App and static files
 COPY --chown=bbp . .

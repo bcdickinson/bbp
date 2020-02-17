@@ -28,7 +28,6 @@ Bristol Bike Polo's website
 - [ ] Tooling
   - [ ] Webpack for all static assets
     - [ ] Image files
-    - [ ] SVG files
 
 
 ### Load DB backup

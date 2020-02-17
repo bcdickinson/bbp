@@ -13,6 +13,10 @@ help:
 
 yaml_files = -f docker-compose.yml -f docker-compose.dev.yml
 
+.PHONY: build
+build:
+	docker-compose $(yaml_files) build
+
 .PHONY: up
 up:
 	docker-compose $(yaml_files) up --build
@@ -34,12 +38,16 @@ shell:
 fe_shell:
 	docker-compose $(yaml_files) run --rm frontend bash
 
+.PHONY: db_shell
+db_shell:
+	docker-compose $(yaml_files) exec postgres psql -U bbp
+
 .PHONY: migrate
 migrate:
 	docker-compose $(yaml_files) run --rm web ./manage.py migrate
 
 .PHONY: makemigrations
-migrations:
+makemigrations:
 	docker-compose $(yaml_files) run --rm web ./manage.py makemigrations
 
 .PHONY: django_tests
